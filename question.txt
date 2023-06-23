@@ -1,0 +1,11 @@
+Bài 5.Viết chương trình giải gần đúng hệ phương trình đại số tuyến tính Ax = b bằng
+phương pháp lặp đơn và lặp Seidel. Thực hiện các yêu cầu sau:
+1) Nhập vào A, b theo khuôn dạng của ma trận
+2) Kiểm tra tính chéo trội của ma trận A.
+3) Tính chuẩn của ma trận A và kiểm tra sự hội tụ của phương pháp lặp đơn, lặp
+Seidel đối với hệ đã cho.
+4) Tính nghiệm gần đúng với số lần lặp k cho trước và đánh giá sai số, theo cả 2
+công thức (k được nhập vào từ bàn phím).
+5) Tính nghiệm gần đúng với sai số e cho trước, theo cả 2 cách áp dụng công thức
+sai số (e được nhập vào từ bàn phím).
+6) Tính nghiệm gần đúng X(k) thoả mãn: ||X(k) − X(k−1) || ≤ e cho trước.
