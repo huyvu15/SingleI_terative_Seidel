@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/ProgramC++/BTL",
-      "program": "d:/ProgramC++/BTL/build/Debug/outDebug",
+      "cwd": "e:/BTL",
+      "program": "e:/BTL/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

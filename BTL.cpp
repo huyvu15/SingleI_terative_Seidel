@@ -179,17 +179,6 @@ double congMatrix(double A[100][100], double B[100][100], double C[100][100], in
     return C[100][100];
 }
 
-double truMatrix(double A[100][100], double B[100][100], double C[100][100], int size)
-{
-    for(int i = 0; i < size; i++)
-    {
-        for(int j = 0; j < size; j++)
-        {
-            C[i][j] = B[i][j] - A[i][j];
-        }
-    }
-    return C[100][100];
-}
 
 double nhanMatrix(double A[100][100], double B[100][100], double C[100][100], int size)
 {   
@@ -341,9 +330,9 @@ double loop_Don_with_condition(double D[100][100], double E[100][100], int size,
 	    congMatrix(F, K, F, size);
 	    XuatMaTran(F, size, 1);
 
-        eva[0][0] = E[0][0]-F[0][0];cout<<eva[0][0]<<endl;
-        eva[1][0] = E[1][0]-F[1][0];cout<<eva[1][0]<<endl;
-        eva[2][0] = E[2][0]-F[2][0];cout<<eva[2][0]<<endl;
+        eva[0][0] = E[0][0]-F[0][0];
+        eva[1][0] = E[1][0]-F[1][0];
+        eva[2][0] = E[2][0]-F[2][0];
 
         copy(F, E, size);
         // nếu sai số nhỏ hơn sai số nhập vào thì dừng
