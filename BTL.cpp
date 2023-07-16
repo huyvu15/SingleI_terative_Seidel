@@ -542,15 +542,36 @@ void setupMenu()
                         case 3:
                             setTextColor(9); 
                             cout << "Mau xanh duong" << endl;
+                            int a;
                             
-                            double D1[100][100], E1[100][100];
-                            copy(D,D1,size);
-                            copy(E,E1,size);
-                            cout<<"Lap don" << endl;
-                            int k;
-                            cout<<"Nhap vao so lan lap: ";cin>>k;
+                            cout<<"1. Lap don"<< endl;
+                            cout<<"2. Lap Seidel"<< endl;
+                            
+                            cin>>a;
+                            switch(a){
+                                case 1:
+                                    double D1[100][100], E1[100][100];
+                                    copy(D,D1,size);
+                                    copy(E,E1,size);
+                                    cout<<"Lap don" << endl;
+                                    int k;
+                                    cout<<"Nhap vao so lan lap: ";cin>>k;
 
-                            loop_KDon(D1, E1, size, k);
+                                    loop_KDon(D1, E1, size, k);
+                                    break;
+                                case 2:
+                                    break;
+
+                            }
+
+                            // double D1[100][100], E1[100][100];
+                            // copy(D,D1,size);
+                            // copy(E,E1,size);
+                            // cout<<"Lap don" << endl;
+                            // int k;
+                            // cout<<"Nhap vao so lan lap: ";cin>>k;
+
+                            // loop_KDon(D1, E1, size, k);
 
                             
 
