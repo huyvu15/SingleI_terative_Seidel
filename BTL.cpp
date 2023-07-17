@@ -140,25 +140,48 @@ double chuanCotVecto(double b[100][100])
     return X_1;
 }
 
+// double chuanHang(double A[100][100], int size)
+// {
+//     double A_inf = 0.0;
+//     for(int i = 0; i < size; i++)
+//     {
+//         for(int j = 0; j < size; j++)
+//         {
+//             A_inf = A_inf + fabs(A[i][j]);
+//         }
+//     }
+//     return A_inf;
+// }
+
+// sửa lại đoạn code chuanHang
 double chuanHang(double A[100][100], int size)
 {
-    double A_inf = 0.0;
-    for(int i = 0; i < sizeof(A); i++)
+    double maxSum = 0.0; // Giá tr? t?i da c?a t?ng giá tr? tuy?t d?i trong các hàng
+
+    for(int i = 0; i < size; i++)
     {
-        for(int j = 0; j < sizeof(A); j++)
+        double rowSum = 0.0; // T?ng giá tr? tuy?t d?i trong hàng i
+
+        for(int j = 0; j < size; j++)
         {
-            A_inf = A_inf + fabs(A[i][j]);
+            rowSum += fabs(A[i][j]);
+        }
+
+        if(rowSum > maxSum)
+        {
+            maxSum = rowSum;
         }
     }
-    return A_inf;
+
+    return maxSum;
 }
 
 double chuanCot(double A[100][100], int size)
 {
     double A_1 = 0.0;
-    for(int i = 0; i < sizeof(A); i++)
+    for(int i = 0; i < size; i++)
     {
-        for(int j = 0; j < sizeof(A); j++)
+        for(int j = 0; j < size; j++)
         {
             A_1 = A_1 + fabs(A[j][i]);
         }
@@ -198,7 +221,7 @@ double nhanMatrix(double A[100][100], double B[100][100], double C[100][100], in
 ////////////////////////////////////////////////////////////////
 
 // đánh giá hội tụ
-double timLamda(double a[100][100],double c[100][100], int size)// thực chất là tìm || Q || < 1
+double timLamda(double a[100][100],double c[100][100], int size)// thực chất là tìm ma trận alpha || Q || < 1
 {
     for(int i = 0; i < size; i++)
     {
@@ -554,20 +577,18 @@ void setupMenu()
                                     copy(D,D1,size);
                                     copy(E,E1,size);
                                     cout<<"Lap don" << endl;
-                                    int k;
-                                    cout<<"Nhap vao so lan lap: ";cin>>k;
+                                    int n_loop;
+                                    cout<<"Nhap vao so lan lap: ";cin>>n_loop;
 
-                                    loop_KDon(D1, E1, size, k);
+                                    loop_KDon(D1, E1, size, n_loop);
                                     break;
                                 case 2:
                                     cout<<"Lap Seidel: " << endl;
                                     int k;
                                     cout<<"Nhap vao so lan lap: ";cin>>k;
 
-                                    loop_kSeidel(A, b, size, k);
-                            
+                                    loop_kSeidel(A, b, size, k);     
                                     break;
-
                             }
 
                             break;
