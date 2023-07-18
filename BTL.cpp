@@ -365,39 +365,45 @@ double loop_Don_with_condition(double D[100][100], double E[100][100], int size,
 }
 
 
-void loop_kSeidel(double A[100][100], double b[100][100], int size, int k)
+
+
+double loop_kSeidel(double D[100][100], double E[100][100], int size, int k)
 {
-    double X[100][100];
-
-    // Kh?i t?o giá tr? ban d?u cho X
-    for (int i = 0; i < size; i++) {
-        X[i][0] = 0.0;
-    }
-
     int dem = 0;
+    double eva[100][100];
+    double y[100][100];
+    copy(E, y, size);
     while (dem < k) {
-        for (int i = 0; i < size; i++) {
-            double sum1 = 0.0;
-            double sum2 = 0.0;
-
-            for (int j = 0; j < i; j++) {
-                sum1 += A[i][j] * X[j][0];
+        for (int i = 0; i < size; i++)
+        {
+            double sum = 0.0;
+            for (int j = 0; j < size; j++) 
+            {
+                if (j != i) 
+                {
+                    sum += D[i][j] * y[j][0];
+                }
             }
-
-            for (int j = i + 1; j < size; j++) {
-                sum2 += A[i][j] * X[j][0];
-            }
-
-            X[i][0] = (b[i][0] - sum1 - sum2) / A[i][i];
+            y[i][0] = E[i][0] + sum;
         }
         dem++;
     }
+    
+    cout << "Da giai xong he phuong trinh trong " << dem << " buoc lap." << endl;
+    cout << "Nghiem cua he phuong trinh la: " << endl;
+    for (int i = 0; i < size; i++) 
+    {
+        cout << "x[" << i << "] = " << y[i][0] << endl;
+    }
+    cout<<endl;
+    cout<<"Danh gia sai so: ";
+    cout<<endl;
+    cout<<"Sai so: (q/(1-q))"<<"(X_"<<k<<" - "<<"X_"<<k-1<<") = "<<chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size);
 
-    cout << "Nghiem gan dung:\n";
-    XuatMaTran(X, size, 1);
 }
 
-double loop_Seidel(double D[100][100], double E[100][100], int size, int k)
+
+double loop_eSeidel(double D[100][100], double E[100][100], int size, int k)
 {
     int iter = 0;
     double x_old[100][100];
@@ -597,13 +603,13 @@ void setupMenu()
                         case 3:
                             setTextColor(9); 
                             cout << "Mau xanh duong" << endl;
-                            int a;
+                            int choice;
                             
                             cout<<"1. Lap don"<< endl;
                             cout<<"2. Lap Seidel"<< endl;
                             
-                            cin>>a;
-                            switch(a){
+                            cin>>choice;
+                            switch(choice){
                                 case 1:
                                     double D1[100][100], E1[100][100];
                                     copy(D,D1,size);
@@ -619,7 +625,7 @@ void setupMenu()
                                     int k;
                                     cout<<"Nhap vao so lan lap: ";cin>>k;
 
-                                    loop_Seidel(D, E, size, k);     
+                                    loop_kSeidel(D, E, size, k);     
                                     break;
                             }
 
