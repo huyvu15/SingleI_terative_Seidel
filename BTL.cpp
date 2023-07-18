@@ -2,7 +2,6 @@
 #include <conio.h>
 #include <windows.h>
 #include<math.h>
-// #include <function.h>
 
 using namespace std;
 
@@ -398,6 +397,39 @@ void loop_kSeidel(double A[100][100], double b[100][100], int size, int k)
     XuatMaTran(X, size, 1);
 }
 
+double loop_Seidel(double D[100][100], double E[100][100], int size, int k)
+{
+    int iter = 0;
+    double x_old[100][100];
+    double y[100][100];
+    copy(E, y, size);
+    while (iter < k) {
+        for (int i = 0; i < size; i++) 
+        {
+            x_old[i][0] = E[i][0];
+        }
+        for (int i = 0; i < size; i++)
+        {
+            double sum = 0.0;
+            for (int j = 0; j < size; j++) 
+            {
+                if (j != i) 
+                {
+                    sum += D[i][j] * y[j][0];
+                }
+            }
+            y[i][0] = E[i][0] + sum;
+        }
+        iter++;
+    }
+    
+    cout << "Da giai xong he phuong trinh trong " << iter << " buoc lap." << endl;
+    cout << "Nghiem cua he phuong trinh la: " << endl;
+    for (int i = 0; i < size; i++) 
+    {
+        cout << "x[" << i << "] = " << y[i][0] << endl;
+    }
+}
 
 
 void setupMenu()
@@ -587,7 +619,7 @@ void setupMenu()
                                     int k;
                                     cout<<"Nhap vao so lan lap: ";cin>>k;
 
-                                    loop_kSeidel(A, b, size, k);     
+                                    loop_Seidel(D, E, size, k);     
                                     break;
                             }
 
