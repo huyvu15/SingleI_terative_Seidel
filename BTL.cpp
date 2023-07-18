@@ -276,7 +276,7 @@ double loop_KDon(double D[100][100], double E[100][100], int size, int k)
 
 
     double F[100][100];// F là ma trận để lưu kết quả 
-    int dem = 0;
+    int dem = 1;
 
     while(dem <k) // công thự lặp X = DX_0 + E
     {
@@ -312,7 +312,7 @@ double loop_eDon(double D[100][100], double E[100][100], int size, double e)
     copy(E, K, size);
     double F[100][100];// F là ma trận để lưu kết quả 
 
-    int dem = 0;
+    int dem = 1;
     while(1) // công thự lặp X = DX_0 + E
     {
     	cout<<"Lan "<<dem+1<<endl;
@@ -328,9 +328,9 @@ double loop_eDon(double D[100][100], double E[100][100], int size, double e)
         copy(F, E, size);
 
         // nếu sai số nhỏ hơn sai số nhập vào thì dừng
-        // if((chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size)) < e) break;
+        if((chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size)) < e) break;
 	    dem++;
-        if(dem == 5) break;
+        // if(dem == 5) break;
 	}
 }
 
@@ -343,7 +343,7 @@ double loop_Don_with_condition(double D[100][100], double E[100][100], int size,
     copy(D, E, size);
     double F[100][100];// F là ma trận để lưu kết quả 
 
-    int dem = 0;
+    int dem = 1;
     while(1) // công thự lặp X = DX_0 + E
     {
     	cout<<"Lan "<<dem+1<<endl;
@@ -364,16 +364,13 @@ double loop_Don_with_condition(double D[100][100], double E[100][100], int size,
     
 }
 
-
-
-
 double loop_kSeidel(double D[100][100], double E[100][100], int size, int k)
 {
-    int dem = 0;
+    int dem = 1;
     double eva[100][100];
-    double y[100][100];
+    double y[100][100];// ma trận phụ để lưu kết quả
     copy(E, y, size);
-    while (dem < k) {
+    while (dem <= k) {
         for (int i = 0; i < size; i++)
         {
             double sum = 0.0;
@@ -386,9 +383,21 @@ double loop_kSeidel(double D[100][100], double E[100][100], int size, int k)
             }
             y[i][0] = E[i][0] + sum;
         }
+        if(dem == k -1 )
+        {
+            copy(y, eva, size);
+        }
         dem++;
     }
-    
+    // for(int i = 0; i < size; i++)
+    // {
+    //     for(int j = 0; j < size; j++)
+    //         cout<<y[i][j]<<"    "<<eva[i][j]<<endl;
+    // }
+    eva[0][0] = y[0][0] - eva[0][0];//cout<<eva[0][0]<<endl;
+    eva[1][0] = y[1][0] - eva[1][0];//cout<<eva[1][0]<<endl;
+    eva[2][0] = y[2][0] - eva[2][0];//cout<<eva[2][0]<<endl;
+
     cout << "Da giai xong he phuong trinh trong " << dem << " buoc lap." << endl;
     cout << "Nghiem cua he phuong trinh la: " << endl;
     for (int i = 0; i < size; i++) 
@@ -398,22 +407,17 @@ double loop_kSeidel(double D[100][100], double E[100][100], int size, int k)
     cout<<endl;
     cout<<"Danh gia sai so: ";
     cout<<endl;
-    cout<<"Sai so: (q/(1-q))"<<"(X_"<<k<<" - "<<"X_"<<k-1<<") = "<<chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size);
-
+    cout<<"Sai so: (q/(1-q))"<<"(X_"<<k<<" - "<<"X_"<<k-1<<") = "<<chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size)<<endl;
 }
 
 
-double loop_eSeidel(double D[100][100], double E[100][100], int size, int k)
+double loop_eSeidel(double D[100][100], double E[100][100], int size, double e)
 {
-    int iter = 0;
-    double x_old[100][100];
-    double y[100][100];
+    int dem = 1;
+    double eva[100][100];
+    double y[100][100];// ma trận phụ để lưu kết quả
     copy(E, y, size);
-    while (iter < k) {
-        for (int i = 0; i < size; i++) 
-        {
-            x_old[i][0] = E[i][0];
-        }
+    while (1) {
         for (int i = 0; i < size; i++)
         {
             double sum = 0.0;
@@ -426,15 +430,22 @@ double loop_eSeidel(double D[100][100], double E[100][100], int size, int k)
             }
             y[i][0] = E[i][0] + sum;
         }
-        iter++;
+        
+        
+        dem++;
     }
-    
-    cout << "Da giai xong he phuong trinh trong " << iter << " buoc lap." << endl;
+
+    eva[0][0] = y[0][0] - eva[0][0];
+    eva[1][0] = y[1][0] - eva[1][0];
+    eva[2][0] = y[2][0] - eva[2][0];
+
+    cout << "Da giai xong he phuong trinh trong " << dem << " buoc lap." << endl;
     cout << "Nghiem cua he phuong trinh la: " << endl;
     for (int i = 0; i < size; i++) 
     {
         cout << "x[" << i << "] = " << y[i][0] << endl;
     }
+    cout<<chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size)<<endl;
 }
 
 
