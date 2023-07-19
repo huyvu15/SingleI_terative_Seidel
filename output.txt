@@ -1,0 +1,23 @@
+Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
+---------------------
+Ma tran B la:
+vetor d la:
+
+                 Exit...
+Chuan cot cua B: 0
+Chuan hang cua B: 0
+Chuan cot cua vector d: 0
+Chuan hang cua vector d: 0
+
+                 Exit...
+Lap don k lan:
+Nhap vao so lan lap: 3Nhap xap xi dau: x_0: 
+Chon luon xap xi dau la ma tran d.
+Lan 1
+Lan 2
+Lan 3
+
+Danh gia sai so: 
+sai so: (q/(1-q))(X_3 - X_2) = 0
+
+                 Exit...

@@ -19,23 +19,23 @@ void gotoxy(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-int whereX()
-{
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
-		return csbi.dwCursorPosition.X;
-	return -1;
-}
+// int whereX()
+// {
+// 	CONSOLE_SCREEN_BUFFER_INFO csbi;
+// 	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+// 		return csbi.dwCursorPosition.X;
+// 	return -1;
+// }
 
 
-//screen: get [y]
-int whereY()
-{
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
-		return csbi.dwCursorPosition.Y;
-	return -1;
-}
+// //screen: get [y]
+// int whereY()
+// {
+// 	CONSOLE_SCREEN_BUFFER_INFO csbi;
+// 	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+// 		return csbi.dwCursorPosition.Y;
+// 	return -1;
+// }
 
 void setTextColor(int color) 
 {
@@ -77,6 +77,32 @@ void XuatMaTran(double a[100][100], int dong, int cot, ofstream &outputFile)
         }
         outputFile << endl;
         cout << endl;
+    }
+}
+
+
+void readfromFile(const string& filename, int* n, double A[100][100],double B[100][100]) {
+    ifstream file(filename.c_str()); 
+    if (file.is_open()) {
+        file >> *n;
+
+        // Ð?c ma tr?n nxn
+        for (int i = 0; i < *n; i++) {
+            for (int j = 0; j < *n; j++) {
+                file >> A[i][j];
+                cout<<A[i][j] << " ";
+            }
+            cout<<endl;
+        }
+        // Ð?c ma tr?n nx1
+        for (int i = 0; i < *n; i++) {
+            file >> B[i][0];
+            cout<<B[i][0]<<endl;
+        }
+
+        file.close();
+    } else {
+        cout << "Khong the mo tep!" << std::endl;
     }
 }
 
@@ -264,7 +290,7 @@ void copy(double a[100][100],double b[100][100],int size)
 
 }
 
-double loop_KDon(double D[100][100], double E[100][100], int size, int k,ofstream &outputFile)
+void loop_KDon(double D[100][100], double E[100][100], int size, int k,ofstream &outputFile)
 {   double eva[100][100];
     cout<<"Nhap xap xi dau: x_0: "<<endl;
     outputFile<<"Nhap xap xi dau: x_0: "<<endl;
@@ -305,7 +331,7 @@ double loop_KDon(double D[100][100], double E[100][100], int size, int k,ofstrea
     outputFile<<"sai so: (q/(1-q))"<<"(X_"<<k<<" - "<<"X_"<<k-1<<") = "<<chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size)<<endl;
 }
 
-double loop_eDon(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
+void loop_eDon(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
 {   double eva[100][100];
     double K[100][100];// copy 
     copy(E, K, size);
@@ -334,7 +360,7 @@ double loop_eDon(double D[100][100], double E[100][100], int size, double e, ofs
 	}
 }
 
-double loop_Don_with_condition(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
+void loop_Don_with_condition(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
 {   double eva[100][100];
     // cout<<"Nhap xap xi dau: x_0: "<<endl;
     // cout<<"Chon luon xap xi dau la ma tran d."<<endl;
@@ -367,13 +393,13 @@ double loop_Don_with_condition(double D[100][100], double E[100][100], int size,
 }
 
 
-double loop_kSeidel(double D[100][100], double E[100][100], int size, int k, ofstream &outputFile)
+void loop_kSeidel(double D[100][100], double E[100][100], int size, int k, ofstream &outputFile)
 {
     int dem = 1;
     double eva[100][100];
     double y[100][100];// ma tr?n ph? d? luu k?t qu?
     copy(E, y, size);
-    while (dem <= k) {
+    while (dem < k) {
         for (int i = 0; i < size; i++)
         {
             double sum = 0.0;
@@ -417,7 +443,7 @@ double loop_kSeidel(double D[100][100], double E[100][100], int size, int k, ofs
 }
 
 
-double loop_eSeidel(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
+void loop_eSeidel(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
 {
     int dem = 1;
     double eva[100][100];
@@ -458,7 +484,7 @@ double loop_eSeidel(double D[100][100], double E[100][100], int size, double e, 
     }
 }
 
-double loop_Seidel_with_condition(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
+void loop_Seidel_with_condition(double D[100][100], double E[100][100], int size, double e, ofstream &outputFile)
 {
     int dem = 1;
     double eva[100][100];
@@ -629,47 +655,59 @@ void setupMenu(ofstream &outputFile)
                     switch (choice) {
                         case 0:
                             setTextColor(10);
-							outputFile<<"Giai HPT tuyen tinh AX = b bang lap don, lap Seidel"<<endl;
+                            outputFile << "Giai HPT tuyen tinh AX = b bang lap don, lap Seidel" << endl;
+                            int choices;
+                            double A[100][100];
+                            double b[100][100];
                             int size;
-						    cout << "Nhap kich thuoc ma tran: ";
-						    outputFile << "Nhap kich thuoc ma tran: ";
-						    cin >> size;
-                            outputFile<<size<<endl;
-                            cout<<"Nhap ma tran A:"<<endl;
-							outputFile<<"Nhap ma tran A:"<<endl;
-						
-						    double A[100][100];
-							double b[100][100];
-							
-						    NhapMaTran(A, size, size);
-						
-						    cout << "Ma tran A:" << endl;
-						    // outputFile << "Ma tran A:" << endl;
-						    XuatMaTran(A, size, size, outputFile);
-						    
-						    cout<<"---------------------"<<endl;
-						    outputFile<<"---------------------"<<endl;
-						    
-						    cout<<"Nhap vector b:"<<endl;
-						    outputFile<<"Nhap vector b:"<<endl;
-							NhapMaTran(b, size, 1);						
-						    cout << "Vector b:" << endl;
-						    XuatMaTran(b, size, 1, outputFile);
 
-						    cout<<"---------------------"<<endl;
-						    outputFile<<"---------------------"<<endl;
+                            cout << "1. Nhap tu file" << endl;
+                            cout << "2. Nhap tay" << endl;
+                            cout << "Nhap lua chon: ";
+                            cin >> choices;
+                            outputFile << "Nhap lua chon: " << choices;
+                            switch (choices) { // Thay đổi "choice" thành "choices"
+                                case 1:
+                                    cout << "Nhap tu file" << endl;
+                                    readfromFile("input.txt", &size, A, b); // Thay đổi "choice" thành "choices"
+                                    break;
+                                case 2:
+                                    cout << "Nhap kich thuoc ma tran: ";
+                                    outputFile << "Nhap kich thuoc ma tran: ";
+                                    cin >> size;
+                                    outputFile << size << endl;
+                                    cout << "Nhap ma tran A:" << endl;
+                                    outputFile << "Nhap ma tran A:" << endl;
 
-                            cout<<"Ma tran B la:"<<endl;
-                            outputFile<<"Ma tran B la:"<<endl;
+                                    NhapMaTran(A, size, size);
+
+                                    cout << "Ma tran A:" << endl;
+                                    XuatMaTran(A, size, size, outputFile);
+
+                                    cout << "---------------------" << endl;
+                                    outputFile << "---------------------" << endl;
+
+                                    cout << "Nhap vector b:" << endl;
+                                    outputFile << "Nhap vector b:" << endl;
+                                    NhapMaTran(b, size, 1);
+                                    cout << "Vector b:" << endl;
+                                    XuatMaTran(b, size, 1, outputFile);
+                                    break;
+                            }
+
+                            cout << "---------------------" << endl;
+                            outputFile << "---------------------" << endl;
+
+                            cout << "Ma tran B la:" << endl;
+                            outputFile << "Ma tran B la:" << endl;
                             double D[100][100];
                             timLamda(A, D, size);
                             XuatMaTran(D, size, size, outputFile);
                             double E[100][100];
-                            cout<<"vetor d la:"<<endl;
-                            outputFile<<"vetor d la:"<<endl;
+                            cout << "vetor d la:" << endl;
+                            outputFile << "vetor d la:" << endl;
                             timvecto_d(A, b, E);
-                            XuatMaTran(E, size,1, outputFile);
-                            
+                            XuatMaTran(E, size, 1, outputFile);
                             break;
                         case 1:
                             setTextColor(12); 
@@ -738,11 +776,14 @@ void setupMenu(ofstream &outputFile)
                                 case 2:
                                     outputFile<<"Lap Seidel k lan:"<<endl;
                                     cout<<"Lap Seidel: " << endl;
-                                    int k;
-                                    cout<<"Nhap vao so lan lap: ";cin>>n_loop;
+                                    int n_loop1;
+                                    cout<<"Nhap vao so lan lap: ";cin>>n_loop1;
                                     outputFile<<"Nhap vao so lan lap: "<<n_loop;
+                                    double D6[100][100], E6[100][100];
+                                    copy(D,D6,size);
+                                    copy(E,E6,size);
 
-                                    loop_kSeidel(D, E, size, k,outputFile);     
+                                    loop_kSeidel(D6, E6, size, n_loop1,outputFile);     
                                     break;
                             }
                             }
@@ -778,8 +819,10 @@ void setupMenu(ofstream &outputFile)
                                     double eps;
                                     cout<<"Nhap vao sai so e: ";cin>>eps;
                                     outputFile<<"Nhap vao sai so e: ";outputFile<<eps<<endl;
-
-                                    loop_eSeidel(D, E, size, eps,outputFile);     
+                                    double D5[100][100], E5[100][100];
+                                    copy(D,D5,size);
+                                    copy(E,E5,size);
+                                    loop_eSeidel(D5, E5, size, eps,outputFile);     
                                     break;
                                 }
                             }
@@ -815,7 +858,10 @@ void setupMenu(ofstream &outputFile)
                                     cout<<"Lap Seidel co dieu kien voi sai so e cho truoc: " << endl;
                                     double eps;
                                     cout<<"Nhap vao sai so e: ";cin>>eps;
-                                    loop_Seidel_with_condition(D, E, size, eps,outputFile);     
+                                    double D4[100][100], E4[100][100];
+                                    copy(D,D4,size);
+                                    copy(E,E4,size);
+                                    loop_Seidel_with_condition(D4, E4, size, eps,outputFile);     
                                     break;
                             }
                         }
