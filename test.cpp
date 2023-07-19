@@ -59,7 +59,7 @@ void NhapMaTran(double a[100][100], int dong, int cot)
     for (int i = 0; i < dong; i++)
     {
         for(int j = 0; j < cot; j++){
-            cout << "a[" << i << ", " << j << "] = ";
+            // cout << "a[" << i << ", " << j << "] = ";
             cin >> a[i][j];
         }
     }
@@ -93,10 +93,10 @@ bool cheoTroiHang(double a[100][100])
             }
         }
         if (sum_row >= sum_diag) {
-            return false;  // ma tr?n không chéo tr?i hàng
+            return false;  // ma tr?n khï¿½ng chï¿½o tr?i hï¿½ng
         }
     }
-    return true;  // ma tr?n chéo tr?i hàng
+    return true;  // ma tr?n chï¿½o tr?i hï¿½ng
 }
 
 bool cheoTroiCot(double a[100][100]) 
@@ -113,10 +113,10 @@ bool cheoTroiCot(double a[100][100])
             }
         }
         if (sum_col >= sum_diag) {
-            return false;  // ma tr?n không chéo tr?i c?t
+            return false;  // ma tr?n khï¿½ng chï¿½o tr?i c?t
         }
     }
-    return true;  // ma tr?n chéo tr?i c?t
+    return true;  // ma tr?n chï¿½o tr?i c?t
 }
 //////////////////////////////////////////
 // matrix[hang][cot]
@@ -163,11 +163,11 @@ double chuanHang(double A[100][100], int size)
 
 double chuanCot(double A[100][100], int size)
 {
-    double maxSum = 0.0; // Giá tr? t?i da c?a t?ng giá tr? tuy?t d?i trong các hàng
+    double maxSum = 0.0; // Giï¿½ tr? t?i da c?a t?ng giï¿½ tr? tuy?t d?i trong cï¿½c hï¿½ng
 
     for(int i = 0; i < size; i++)
     {
-        double colSum = 0.0; // T?ng giá tr? tuy?t d?i trong hàng i
+        double colSum = 0.0; // T?ng giï¿½ tr? tuy?t d?i trong hï¿½ng i
 
         for(int j = 0; j < size; j++)
         {
@@ -213,8 +213,8 @@ double nhanMatrix(double A[100][100], double B[100][100], double C[100][100], in
 
 ////////////////////////////////////////////////////////////////
 
-// dánh giá h?i t?
-double timLamda(double a[100][100],double c[100][100], int size)// th?c ch?t là tìm ma tr?n alpha || Q || < 1
+// dï¿½nh giï¿½ h?i t?
+double timLamda(double a[100][100],double c[100][100], int size)// th?c ch?t lï¿½ tï¿½m ma tr?n alpha || Q || < 1
 {
     for(int i = 0; i < size; i++)
     {
@@ -269,10 +269,10 @@ double loop_KDon(double D[100][100], double E[100][100], int size, int k)
     copy(E, K, size);
 
 
-    double F[100][100];// F là ma tr?n d? luu k?t qu? 
+    double F[100][100];// F lï¿½ ma tr?n d? luu k?t qu? 
     int dem = 1;
 
-    while(dem <k) // công th? l?p X = DX_0 + E
+    while(dem <k) // cï¿½ng th? l?p X = DX_0 + E
     {
     	cout<<"Lan "<<dem+1<<endl;
     	
@@ -280,9 +280,9 @@ double loop_KDon(double D[100][100], double E[100][100], int size, int k)
 	    congMatrix(F, K, F, size);
 	    XuatMaTran(F, size, 1);
 
-        // khi ch?y xong l?nh này, thì F là ma tr?n du?c dùng d? luu k?t qu? cu?i cùng và du?c xu?t ra
-        // nhu v?y F là  ma tr?n X c?n tìm
-        // bh ph?i g?n l?i X_0(E) là ma tr?n F, nhung bh g?n nhu nào m?i là câu chuy?n  
+        // khi ch?y xong l?nh nï¿½y, thï¿½ F lï¿½ ma tr?n du?c dï¿½ng d? luu k?t qu? cu?i cï¿½ng vï¿½ du?c xu?t ra
+        // nhu v?y F lï¿½  ma tr?n X c?n tï¿½m
+        // bh ph?i g?n l?i X_0(E) lï¿½ ma tr?n F, nhung bh g?n nhu nï¿½o m?i lï¿½ cï¿½u chuy?n  
         
         eva[0][0] = E[0][0]-F[0][0];
         eva[1][0] = E[1][0]-F[1][0];
@@ -305,10 +305,10 @@ double loop_eDon(double D[100][100], double E[100][100], int size, double e)
 
     double K[100][100];// copy 
     copy(E, K, size);
-    double F[100][100];// F là ma tr?n d? luu k?t qu? 
+    double F[100][100];// F lï¿½ ma tr?n d? luu k?t qu? 
 
     int dem = 1;
-    while(1) // công th? l?p X = DX_0 + E
+    while(1) // cï¿½ng th? l?p X = DX_0 + E
     {
     	cout<<"Lan "<<dem+1<<endl;
     	
@@ -322,7 +322,7 @@ double loop_eDon(double D[100][100], double E[100][100], int size, double e)
         
         copy(F, E, size);
 
-        // n?u sai s? nh? hon sai s? nh?p vào thì d?ng
+        // n?u sai s? nh? hon sai s? nh?p vï¿½o thï¿½ d?ng
         if((chuanHang(D, size)/(1-chuanHang(D, size))*chuanHang(eva, size)) < e) break;
 	    dem++;
         // if(dem == 5) break;
@@ -336,10 +336,10 @@ double loop_Don_with_condition(double D[100][100], double E[100][100], int size,
     
     double K[100][100];// copy 
     copy(E, K, size);
-    double F[100][100];// F là ma tr?n d? luu k?t qu? 
+    double F[100][100];// F lï¿½ ma tr?n d? luu k?t qu? 
 
     int dem = 1;
-    while(1) // công th? l?p X = DX_0 + E
+    while(1) // cï¿½ng th? l?p X = DX_0 + E
     {
     	cout<<"Lan "<<dem+1<<endl;
     	
@@ -353,7 +353,7 @@ double loop_Don_with_condition(double D[100][100], double E[100][100], int size,
         
         copy(F, E, size);
 
-        // n?u sai s? nh? hon sai s? nh?p vào thì d?ng
+        // n?u sai s? nh? hon sai s? nh?p vï¿½o thï¿½ d?ng
         if(chuanHang(eva, size) < e) break;
 	    dem++;
         // if(dem == 5) break;
@@ -493,35 +493,49 @@ void setupMenu()
     while (true) {
         clearScreen();
 
-        cout << "              =====================================================================================        "<< endl;
-        cout << "              |                                        MENU                                       |          " << endl;
-        cout << "              =====================================================================================        " << endl;
+        cout << "              =======================================================================================        "<< endl;
+        cout << "              |  GIAI GAN DUNG HE PHUONG TRINH AX = b BANG PHUONG PHAP LAP DON, LAP SEIDELDAY CUNG  |          " << endl;
+        cout << "              =======================================================================================        " << endl;
 
         for (int i = 0; i <= maxChoice; i++) {
             gotoxy(0, i + 3);
             if (i == choice) {
-                printHighlightedOption("->");
+                printHighlightedOption(">>");
                 switch (i) {
                     case 0:
-                        printHighlightedOption("1. Nhap vao A, b theo khuon dang cua ma tran");
+                    	cout<<"        |";
+                        printHighlightedOption("   1. Nhap vao A, b theo khuon dang cua ma tran");
+                        cout<<"	                   	    |";
                         break;
                     case 1:
-                        printHighlightedOption("2. Kiem tra tinh cheo troi cua ma tran A va su hoi tu cua phuong phap");
+                    	cout<<"        |";
+                        printHighlightedOption("   2. Kiem tra tinh cheo troi cua ma tran A va su hoi tu cua phuong phap");
+                        cout<<"         |";
                         break;
                     case 2:
-                        printHighlightedOption("3. Tinh chuan cua ma tran A doi voi he da cho.");
+                    	cout<<"        |";
+                        printHighlightedOption("   3. Tinh chuan cua ma tran A doi voi he da cho.");
+                        cout<<"				    |";
                         break;
                     case 3:
-                        printHighlightedOption("4. Tinh nghiem gan dung voi so lan lap k cho truoc, danh gia sai so theo ca 2 cong thuc");
+                    	cout<<"        |";
+                        printHighlightedOption("   4. Tinh nghiem gan dung voi so lan lap k cho truoc, danh gia sai so.");
+                        cout<<"	    |";
                         break;
                     case 4:
-                        printHighlightedOption("5. Tinh nghiem gan dung voi sai so e cho truoc, theo ca 2 cach ap dung cong thuc sai so.");
+                    	cout<<"        |";
+                        printHighlightedOption("   5. Tinh nghiem gan dung voi sai so e cho truoc.");
+                        cout<<"			            |";
                         break;
                     case 5:
-                        printHighlightedOption("6. Tinh nghiem gan dung X(k) thoa man: ||X(k)-X(k-1)|| <= e cho truoc");
+                    	cout<<"        |";
+                        printHighlightedOption("   6. Tinh nghiem gan dung X(k) thoa man: ||X(k)-X(k-1)|| <= e cho truoc");
+                        cout<<"         |";
                         break;
                     case 6:
-                        printHighlightedOption("Thoat");
+                    	cout<<"        |";
+                        printHighlightedOption("   Thoat");
+                        cout<<"                                                                         |";
                         break;
                 }
             }
@@ -529,29 +543,45 @@ void setupMenu()
                 printNormalOption("  ");
                 switch (i) {
                     case 0:
-                        printNormalOption("  1. Nhap vao A, b theo khuon dang cua ma tran");
+                    	cout<<"        |";
+                        printNormalOption("   1. Nhap vao A, b theo khuon dang cua ma tran");
+                        cout<<"	                   	    |";
                         break;
                     case 1:
-                        printNormalOption("  2. Kiem tra tinh cheo troi cua ma tran A va su hoi tu cua phuong phap");
+                    	cout<<"        |";
+                        printNormalOption("   2. Kiem tra tinh cheo troi cua ma tran A va su hoi tu cua phuong phap");
+                        cout<<"         |";
                         break;
                     case 2:
-                        printNormalOption("  3. Tinh chuan cua ma tran A doi voi he da cho.");
+                    	cout<<"        |";
+                        printNormalOption("   3. Tinh chuan cua ma tran A doi voi he da cho.");
+                        cout<<"				    |";
                         break;
                     case 3:
-                        printNormalOption("  4. Tinh nghiem gan dung voi so lan lap k cho truoc va danh gia sai so theo ca 2 cong thuc");
+                    	cout<<"        |";
+                        printNormalOption("   4. Tinh nghiem gan dung voi so lan lap k cho truoc, danh gia sai so.");
+                        cout<<"	    |";
                         break;
                     case 4:
-                        printNormalOption("  5. Tinh nghiem gan dung voi sai so e cho truoc, theo ca 2 cach ap dung cong thuc sai so.");
+                    	cout<<"        |";
+                        printNormalOption("   5. Tinh nghiem gan dung voi sai so e cho truoc.");
+                        cout<<"			            |";
                         break;
                     case 5:
-                        printNormalOption("  6. Tinh nghiem gan dung X(k) thoa man: ||X(k)-X(k-1)|| <= e cho truoc");
+                    	cout<<"        |";
+                        printNormalOption("   6. Tinh nghiem gan dung X(k) thoa man: ||X(k)-X(k-1)|| <= e cho truoc");
+                        cout<<"         |";
                         break;
                     case 6:
-                        printNormalOption("  Thoat");
+                    	cout<<"        |";
+                        printNormalOption("   Thoat");
+                        cout<<"                                                                         |";
                         break;
                 }
             }
-        }
+        }               cout<<endl;
+                        cout << "              =======================================================================================        " << endl;
+
 
         key = getch(); 
 
@@ -583,8 +613,7 @@ void setupMenu()
                     cout<<endl;
                     switch (choice) {
                         case 0:
-                            setTextColor(10);// xanh la cay 
-//                          cout << "Mau do" << endl;
+                            setTextColor(10);
 							cout<<"Nhap ma tran A:"<<endl;
                             int size;
 						    cout << "Nhap kich thuoc ma tran: ";
@@ -640,7 +669,6 @@ void setupMenu()
                             break;
                         case 2:
                             setTextColor(14); 
-                            cout << "Mau vang" << endl;
                             cout<<"Chuan cot cua A: " <<chuanCot(D, size)<< endl;
                             cout<<"Chuan hang cua A: " <<chuanHang(D, size)<< endl;
                             cout<<"Chuan cot cua vector b: " << chuanCotVecto(E, size)<< endl;
@@ -648,7 +676,11 @@ void setupMenu()
                             break;
                         case 3:
                             setTextColor(9); 
-                            cout << "Mau xanh duong" << endl;
+                            if(chuanHang(D, size)>=1)
+                            {
+                                cout<<"He phuong trinh ko giai duoc bang lap don, lap seidel"<< endl;
+                            }else
+                            {
                             int choice;
                             
                             cout<<"1. Lap don"<< endl;
@@ -674,10 +706,14 @@ void setupMenu()
                                     loop_kSeidel(D, E, size, k);     
                                     break;
                             }
+                            }
                             break;
                         case 4:
                             setTextColor(13); 
-                            cout << "Mau xanh duong" << endl;
+                            if(chuanHang(D, size)<= 1){
+                                cout<<"He da cho khong giai duoc bang pp lap don, seidel: "<<endl;
+                            }else
+                            {
                             int choice2;
                             
                             cout<<"1. Lap don"<< endl;
@@ -703,10 +739,15 @@ void setupMenu()
                                     loop_eSeidel(D, E, size, eps);     
                                     break;
                             }
+                            }
                             break;
                         case 5:
                             setTextColor(11); 
-                            cout << "Mau tim:" << endl;
+                            if(chuanHang(D, size)<=1)
+                            {
+                                cout<<"He da cho khong giai duoc bang lap don, lap seidel"<<endl;
+                            }else
+                            {
                             int choice3;
                             
                             cout<<"1. Lap don"<< endl;
@@ -731,6 +772,7 @@ void setupMenu()
                                     loop_Seidel_with_condition(D, E, size, eps);     
                                     break;
                             }
+                        }
                     }
                     setTextColor(15); 
                     cout<<endl;
