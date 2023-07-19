@@ -710,8 +710,8 @@ void setupMenu()
                             break;
                         case 4:
                             setTextColor(13); 
-                            if(chuanHang(D, size)<= 1){
-                                cout<<"He da cho khong giai duoc bang pp lap don, seidel: "<<endl;
+                            if(chuanHang(D, size)>= 1){
+                                cout<<"He da cho khong giai duoc bang pp lap don, seidel do he khong hoi tu: "<<endl;
                             }else
                             {
                             int choice2;
@@ -738,12 +738,12 @@ void setupMenu()
 
                                     loop_eSeidel(D, E, size, eps);     
                                     break;
-                            }
+                                }
                             }
                             break;
                         case 5:
                             setTextColor(11); 
-                            if(chuanHang(D, size)<=1)
+                            if(chuanHang(D, size)>=1)
                             {
                                 cout<<"He da cho khong giai duoc bang lap don, lap seidel"<<endl;
                             }else
