@@ -625,7 +625,7 @@ void setupMenu()
 							
 						    NhapMaTran(A, size, size);
 						
-						    cout << "Ma tran vua nhap:" << endl;
+						    cout << "Ma tran A:" << endl;
 						    XuatMaTran(A, size, size);
 						    
 						    cout<<"---------------------"<<endl;
@@ -637,7 +637,7 @@ void setupMenu()
 
 						    cout<<"---------------------"<<endl;
 
-                            cout<<"Ma tran alpha la:"<<endl;
+                            cout<<"Ma tran B la:"<<endl;
                             double D[100][100];
                             timLamda(A, D, size);
                             XuatMaTran(D, size, size);
@@ -659,20 +659,19 @@ void setupMenu()
                             cout<<"--------------"<<endl;
                             if(chuanHang(D, size) < 1.0)
                             {   
-                                cout<<"|| Q || = "<<chuanHang(D, size)<<endl;
+                                cout<<"Do || Q || = "<<chuanHang(D, size)<<endl;
                                 cout<<"Phuong phap hoi tu";
                             }else{
-                                cout<<chuanHang(D, size)<<endl;
+                                cout<<"Do ||Q|| = "<<chuanHang(D, size)<<endl;
                                 cout<<"Phuong phap khong hoi tu";
                             }
-
                             break;
                         case 2:
                             setTextColor(14); 
-                            cout<<"Chuan cot cua A: " <<chuanCot(D, size)<< endl;
-                            cout<<"Chuan hang cua A: " <<chuanHang(D, size)<< endl;
-                            cout<<"Chuan cot cua vector b: " << chuanCotVecto(E, size)<< endl;
-                            cout<<"Chuan hang cua vector b: " << chuanHangVecto(E, size)<< endl;
+                            cout<<"Chuan cot cua B: " <<chuanCot(D, size)<< endl;
+                            cout<<"Chuan hang cua B: " <<chuanHang(D, size)<< endl;
+                            cout<<"Chuan cot cua vector d: " << chuanCotVecto(E, size)<< endl;
+                            cout<<"Chuan hang cua vector d: " << chuanHangVecto(E, size)<< endl;
                             break;
                         case 3:
                             setTextColor(9); 
