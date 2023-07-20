@@ -1,10 +1,8 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
-#include <math.h>
+#include<math.h>
 #include <fstream>
-// #include"function.h"
-
 
 using namespace std;
 
@@ -20,6 +18,24 @@ void gotoxy(int x, int y)
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
+// int whereX()
+// {
+// 	CONSOLE_SCREEN_BUFFER_INFO csbi;
+// 	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+// 		return csbi.dwCursorPosition.X;
+// 	return -1;
+// }
+
+
+// //screen: get [y]
+// int whereY()
+// {
+// 	CONSOLE_SCREEN_BUFFER_INFO csbi;
+// 	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+// 		return csbi.dwCursorPosition.Y;
+// 	return -1;
+// }
 
 void setTextColor(int color) 
 {
@@ -226,6 +242,7 @@ double nhanMatrix(double A[100][100], double B[100][100], double C[100][100], in
 
 ////////////////////////////////////////////////////////////////
 
+// d�nh gi� h?i t?
 double timLamda(double a[100][100],double c[100][100], int size)// th?c ch?t l� t�m ma tr?n alpha || Q || < 1
 {
     for(int i = 0; i < size; i++)
@@ -296,6 +313,10 @@ void loop_KDon(double D[100][100], double E[100][100], int size, int k,ofstream 
 	    congMatrix(F, K, F, size);
 	    XuatMaTran(F, size, 1, outputFile);
 
+        // khi ch?y xong l?nh n�y, th� F l� ma tr?n du?c d�ng d? luu k?t qu? cu?i c�ng v� du?c xu?t ra
+        // nhu v?y F l�  ma tr?n X c?n t�m
+        // bh ph?i g?n l?i X_0(E) l� ma tr?n F, nhung bh g?n nhu n�o m?i l� c�u chuy?n  
+        
         eva[0][0] = E[0][0]-F[0][0];
         eva[1][0] = E[1][0]-F[1][0];
         eva[2][0] = E[2][0]-F[2][0];
@@ -397,7 +418,11 @@ void loop_kSeidel(double D[100][100], double E[100][100], int size, int k, ofstr
         }
         dem++;
     }
-
+    // for(int i = 0; i < size; i++)
+    // {
+    //     for(int j = 0; j < size; j++)
+    //         cout<<y[i][j]<<"    "<<eva[i][j]<<endl;
+    // }
     eva[0][0] = y[0][0] - eva[0][0];//cout<<eva[0][0]<<endl;
     eva[1][0] = y[1][0] - eva[1][0];//cout<<eva[1][0]<<endl;
     eva[2][0] = y[2][0] - eva[2][0];//cout<<eva[2][0]<<endl;
@@ -497,534 +522,6 @@ void loop_Seidel_with_condition(double D[100][100], double E[100][100], int size
     {
         cout << "x[" << i << "] = " << y[i][0] << endl;
         outputFile << "x[" << i << "] = " << y[i][0] << endl;
-    }
-}
-
-
-
-void chucnang1(ofstream &outputFile, double A[100][100], double b[100][100], int size)
-{
-    int choice = 0;
-    int maxChoice = 2;
-    char key;
-
-    while (true) {
-        clearScreen();
-
-        cout << "              =======================================================================================        " << endl;
-        cout << "              |                       Nhap input cho chuong trinh                                   |          " << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        for (int i = 0; i <= maxChoice; i++) {
-            gotoxy(0, i + 3);
-            if (i == choice) {
-                printHighlightedOption(">>");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printHighlightedOption("   1.  Nhap tu file");
-                    cout << "                                                              |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printHighlightedOption("   2.  Nhap tay    ");
-                    cout << "                                                              |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printHighlightedOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-            else {
-                printNormalOption("  ");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printNormalOption("   1.  Nhap tu file");
-                    cout << "                                                              |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printNormalOption("   2.  Nhap tay    ");
-                    cout << "                                                              |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printNormalOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-        }
-        cout << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        key = getch();
-
-        switch (key) {
-        case 'w':
-        case 'W':
-        case 72:
-            if (choice > 0)
-            {
-                choice--;
-                gotoxy(0, choice + 4);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 5);
-                printNormalOption("  ");
-            }
-            break;
-        case 's':
-        case 'S':
-        case 80:
-            if (choice < maxChoice)
-            {
-                choice++;
-                gotoxy(0, choice + 2);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 1);
-                printNormalOption("  ");
-            }
-            break;
-        case '\r':
-            clearScreen();
-            if (choice == maxChoice) {
-                return; // Thoát menu con và quay lại menu ban đầu
-            }
-            else {
-                cout << "Ban da lua chon: ";
-                cout << endl;
-                outputFile << "Giai HPT tuyen tinh AX = b bang lap don, lap Seidel" << endl;
-                switch (choice) {
-                case 0:
-                    setTextColor(10);
-                    cout << "Nhap tu file" << endl;
-                    readfromFile("input.txt", &size, A, b); // Thay đổi "choice" thành "choices"
-                    break;
-                case 1:
-                    setTextColor(12);
-                    cout << "Nhap kich thuoc ma tran: ";
-                    outputFile << "Nhap kich thuoc ma tran: ";
-                    cin >> size;
-                    outputFile << size << endl;
-                    cout << "Nhap ma tran A:" << endl;
-                    outputFile << "Nhap ma tran A:" << endl;
-
-                    NhapMaTran(A, size, size);
-
-                    cout << "Ma tran A:" << endl;
-                    XuatMaTran(A, size, size, outputFile);
-
-                    cout << "---------------------" << endl;
-                    outputFile << "---------------------" << endl;
-
-                    cout << "Nhap vector b:" << endl;
-                    outputFile << "Nhap vector b:" << endl;
-                    NhapMaTran(b, size, 1);
-                    cout << "Vector b:" << endl;
-                    XuatMaTran(b, size, 1, outputFile);
-
-                    break;
-                }
-            }
-
-            setTextColor(15);
-            cout << endl;
-            cout << "Nhan phim bat ki de tiep tuc...";
-            getch();
-            break;
-        }
-    }
-}
-
-void chucnang4(ofstream &outputFile, double D[100][100], double E[100][100], int size)
-{
-    int choice = 0;
-    int maxChoice = 2;
-    char key;
-
-    while (true) {
-        clearScreen();
-
-        cout << "              =======================================================================================        " << endl;
-        cout << "              |                           Giai gan dung voi so lan lap k                            |          " << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        for (int i = 0; i <= maxChoice; i++) {
-            gotoxy(0, i + 3);
-            if (i == choice) {
-                printHighlightedOption(">>");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printHighlightedOption("   1. Lap don");
-                    cout << "                                                                    |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printHighlightedOption("   2. Lap Seidel");
-                    cout << "                                                                 |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printHighlightedOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-            else {
-                printNormalOption("  ");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printNormalOption("   1. Lap don");
-                    cout << "                                                                    |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printNormalOption("   2. Lap Seidel");
-                    cout << "                                                                 |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printNormalOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-        }
-        cout << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        key = getch();
-
-        switch (key) {
-        case 'w':
-        case 'W':
-        case 72:
-            if (choice > 0)
-            {
-                choice--;
-                gotoxy(0, choice + 4);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 5);
-                printNormalOption("  ");
-            }
-            break;
-        case 's':
-        case 'S':
-        case 80:
-            if (choice < maxChoice)
-            {
-                choice++;
-                gotoxy(0, choice + 2);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 1);
-                printNormalOption("  ");
-            }
-            break;
-        case '\r':
-            clearScreen();
-            if (choice == maxChoice) {
-                return; // Thoát menu con và quay lại menu ban đầu
-            }
-            else {
-                
-                switch (choice) {
-                case 0:
-                    setTextColor(10);
-                    outputFile<<"Lap don k lan:"<<endl;
-                    double D1[100][100], E1[100][100];
-                    copy(D,D1,size);
-                    copy(E,E1,size);
-                    cout<<"Lap don" << endl;
-                    int n_loop;
-                    cout<<"Nhap vao so lan lap: ";cin>>n_loop;
-                    outputFile<<"Nhap vao so lan lap: ";outputFile<<n_loop;
-
-                    loop_KDon(D1, E1, size, n_loop,outputFile);
-                    break;
-                case 1:
-                    setTextColor(12);
-                    outputFile<<"Lap Seidel k lan:"<<endl;
-                    cout<<"Lap Seidel: " << endl;
-                    int n_loop1;
-                    cout<<"Nhap vao so lan lap: ";cin>>n_loop1;
-                    outputFile<<"Nhap vao so lan lap: "<<n_loop;
-                    double D6[100][100], E6[100][100];
-                    copy(D,D6,size);
-                    copy(E,E6,size);
-
-                    loop_kSeidel(D6, E6, size, n_loop1,outputFile);     
-                    break;
-                }
-            }
-
-            setTextColor(15);
-            cout << endl;
-            cout << "Nhan phim bat ki de tiep tuc...";
-            getch();
-            break;
-        }
-    }
-}
-
-void chucnang5(ofstream &outputFile, double D[100][100], double E[100][100], int size)
-{
-    int choice = 0;
-    int maxChoice = 2;
-    char key;
-
-    while (true) {
-        clearScreen();
-
-        cout << "              =======================================================================================        " << endl;
-        cout << "              |                     Giai gan dung voi sai so e cho truoc(tien nghiem)               |          " << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        for (int i = 0; i <= maxChoice; i++) {
-            gotoxy(0, i + 3);
-            if (i == choice) {
-                printHighlightedOption(">>");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printHighlightedOption("   1. Lap don");
-                    cout << "                                                                    |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printHighlightedOption("   2. Lap Seidel");
-                    cout << "                                                                 |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printHighlightedOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-            else {
-                printNormalOption("  ");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printNormalOption("   1. Lap don");
-                    cout << "                                                                    |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printNormalOption("   2. Lap Seidel");
-                    cout << "                                                                 |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printNormalOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-        }
-        cout << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        key = getch();
-
-        switch (key) {
-        case 'w':
-        case 'W':
-        case 72:
-            if (choice > 0)
-            {
-                choice--;
-                gotoxy(0, choice + 4);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 5);
-                printNormalOption("  ");
-            }
-            break;
-        case 's':
-        case 'S':
-        case 80:
-            if (choice < maxChoice)
-            {
-                choice++;
-                gotoxy(0, choice + 2);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 1);
-                printNormalOption("  ");
-            }
-            break;
-        case '\r':
-            clearScreen();
-            if (choice == maxChoice) {
-                return; // Thoát menu con và quay lại menu ban đầu
-            }
-            else {
-                
-                switch (choice) {
-                case 0:
-                    outputFile<<"Lap don voi sai so e cho truoc:"<<endl;
-                    double D2[100][100], E2[100][100];
-                    copy(D,D2,size);
-                    copy(E,E2,size);
-                    cout<<"Lap don voi sai so e cho truoc: " << endl;
-                    double e;
-                    cout<<"Nhap vao sai so e: ";cin>>e;
-
-                    loop_eDon(D2, E2, size, e,outputFile);
-                    
-                    break;
-                case 1:
-                    outputFile<<"Lap Seidel voi sai so e cho truoc:"<<endl;
-                    cout<<"Lap Seidel voi sai so e cho truoc " << endl;
-                    double eps;
-                    cout<<"Nhap vao sai so e: ";cin>>eps;
-                    outputFile<<"Nhap vao sai so e: ";outputFile<<eps<<endl;
-                    double D5[100][100], E5[100][100];
-                    copy(D,D5,size);
-                    copy(E,E5,size);
-                    loop_eSeidel(D5, E5, size, eps,outputFile);     
-                    break;
-                }
-            }
-
-            setTextColor(15);
-            cout << endl;
-            cout << "Nhan phim bat ki de tiep tuc...";
-            getch();
-            break;
-        }
-    }
-}
-
-void chucnang6(ofstream &outputFile, double D[100][100], double E[100][100], int size)
-{
-    int choice = 0;
-    int maxChoice = 2;
-    char key;
-
-    while (true) {
-        clearScreen();
-
-        cout << "              =======================================================================================        " << endl;
-        cout << "              |                      Giai gan dung voi dieu kien cho truoc(hau nghiem)              |          " << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        for (int i = 0; i <= maxChoice; i++) {
-            gotoxy(0, i + 3);
-            if (i == choice) {
-                printHighlightedOption(">>");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printHighlightedOption("   1. Lap don");
-                    cout << "                                                                    |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printHighlightedOption("   2. Lap Seidel");
-                    cout << "                                                                 |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printHighlightedOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-            else {
-                printNormalOption("  ");
-                switch (i) {
-                case 0:
-                    cout << "        |";
-                    printNormalOption("   1. Lap don");
-                    cout << "                                                                    |";
-                    break;
-                case 1:
-                    cout << "        |";
-                    printNormalOption("   2. Lap Seidel");
-                    cout << "                                                                 |";
-                    break;
-                case 2:
-                    cout << "        |";
-                    printNormalOption("   Thoat");
-                    cout << "                                                                         |";
-                    break;
-                }
-            }
-        }
-        cout << endl;
-        cout << "              =======================================================================================        " << endl;
-
-        key = getch();
-
-        switch (key) {
-        case 'w':
-        case 'W':
-        case 72:
-            if (choice > 0)
-            {
-                choice--;
-                gotoxy(0, choice + 4);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 5);
-                printNormalOption("  ");
-            }
-            break;
-        case 's':
-        case 'S':
-        case 80:
-            if (choice < maxChoice)
-            {
-                choice++;
-                gotoxy(0, choice + 2);
-                printHighlightedOption(">>");
-                gotoxy(0, choice + 1);
-                printNormalOption("  ");
-            }
-            break;
-        case '\r':
-            clearScreen();
-            if (choice == maxChoice) {
-                return; // Thoát menu con và quay lại menu ban đầu
-            }
-            else {
-                
-                switch (choice) {
-                case 0:
-                    outputFile<<"Lap don co dieu kien voi sai so e cho truoc:"<<endl;
-                    cout<<"Lap don co dieu kien voi sai so e cho truoc: " << endl;
-                    double exp;
-                    double D3[100][100], E3[100][100];
-                    copy(D,D3,size);
-                    copy(E,E3,size);
-                    cout<<"Nhap vao sai so e: ";cin>>exp;
-
-                    loop_Don_with_condition(D3, E3, size, exp,outputFile);
-                    
-                    break;
-                case 1:
-                    outputFile<<"Lap Seidel co dieu kien voi sai so e cho truoc:"<<endl;
-                    cout<<"Lap Seidel co dieu kien voi sai so e cho truoc: " << endl;
-                    double eps;
-                    cout<<"Nhap vao sai so e: ";cin>>eps;
-                    double D4[100][100], E4[100][100];
-                    copy(D,D4,size);
-                    copy(E,E4,size);
-                    loop_Seidel_with_condition(D4, E4, size, eps,outputFile);  
-                    break;
-                }
-            }
-
-            setTextColor(15);
-            cout << endl;
-            cout << "Nhan phim bat ki de tiep tuc...";
-            getch();
-            break;
-        }
     }
 }
 
@@ -1158,11 +655,46 @@ void setupMenu(ofstream &outputFile)
                     switch (choice) {
                         case 0:
                             setTextColor(10);
+                            outputFile << "Giai HPT tuyen tinh AX = b bang lap don, lap Seidel" << endl;
+                            int choices;
                             double A[100][100];
                             double b[100][100];
                             int size;
-                            cout<<"Nhap kich thuoc ma tran: ";cin>>size;
-                            chucnang1(outputFile, A, b, size);
+
+                            cout << "1. Nhap tu file" << endl;
+                            cout << "2. Nhap tay" << endl;
+                            cout << "Nhap lua chon: ";
+                            cin >> choices;
+                            outputFile << "Nhap lua chon: " << choices;
+                            switch (choices) { // Thay đổi "choice" thành "choices"
+                                case 1:
+                                    cout << "Nhap tu file" << endl;
+                                    readfromFile("input.txt", &size, A, b); // Thay đổi "choice" thành "choices"
+                                    break;
+                                case 2:
+                                    cout << "Nhap kich thuoc ma tran: ";
+                                    outputFile << "Nhap kich thuoc ma tran: ";
+                                    cin >> size;
+                                    outputFile << size << endl;
+                                    cout << "Nhap ma tran A:" << endl;
+                                    outputFile << "Nhap ma tran A:" << endl;
+
+                                    NhapMaTran(A, size, size);
+
+                                    cout << "Ma tran A:" << endl;
+                                    XuatMaTran(A, size, size, outputFile);
+
+                                    cout << "---------------------" << endl;
+                                    outputFile << "---------------------" << endl;
+
+                                    cout << "Nhap vector b:" << endl;
+                                    outputFile << "Nhap vector b:" << endl;
+                                    NhapMaTran(b, size, 1);
+                                    cout << "Vector b:" << endl;
+                                    XuatMaTran(b, size, 1, outputFile);
+                                    break;
+                            }
+
                             cout << "---------------------" << endl;
                             outputFile << "---------------------" << endl;
 
@@ -1188,6 +720,7 @@ void setupMenu(ofstream &outputFile)
                                 cout<< " A khong cheo troi"<<endl;
                                 outputFile<< " A khong cheo troi"<<endl;
                             }
+
                             cout<<"--------------"<<endl;
                             outputFile<<"--------------"<<endl;
                             if(chuanHang(D, size) < 1.0)
@@ -1221,7 +754,38 @@ void setupMenu(ofstream &outputFile)
                                 outputFile<<"He phuong trinh ko giai duoc bang lap don, lap seidel"<< endl;
                             }else
                             {
-                            chucnang4(outputFile, D, E, size);
+                            int choice;
+                            
+                            cout<<"1. Lap don"<< endl;
+                            cout<<"2. Lap Seidel"<< endl;
+                            
+                            cin>>choice;
+                            switch(choice){
+                                case 1:
+                                    outputFile<<"Lap don k lan:"<<endl;
+                                    double D1[100][100], E1[100][100];
+                                    copy(D,D1,size);
+                                    copy(E,E1,size);
+                                    cout<<"Lap don" << endl;
+                                    int n_loop;
+                                    cout<<"Nhap vao so lan lap: ";cin>>n_loop;
+                                    outputFile<<"Nhap vao so lan lap: ";outputFile<<n_loop;
+
+                                    loop_KDon(D1, E1, size, n_loop,outputFile);
+                                    break;
+                                case 2:
+                                    outputFile<<"Lap Seidel k lan:"<<endl;
+                                    cout<<"Lap Seidel: " << endl;
+                                    int n_loop1;
+                                    cout<<"Nhap vao so lan lap: ";cin>>n_loop1;
+                                    outputFile<<"Nhap vao so lan lap: "<<n_loop;
+                                    double D6[100][100], E6[100][100];
+                                    copy(D,D6,size);
+                                    copy(E,E6,size);
+
+                                    loop_kSeidel(D6, E6, size, n_loop1,outputFile);     
+                                    break;
+                            }
                             }
                             break;
                         case 4:
@@ -1231,7 +795,36 @@ void setupMenu(ofstream &outputFile)
                                 outputFile<<"He da cho khong giai duoc bang pp lap don, seidel do he khong hoi tu: "<<endl;
                             }else
                             {
-                            chucnang5(outputFile, D, E, size);
+                            int choice2;
+                            
+                            cout<<"1. Lap don"<< endl;
+                            cout<<"2. Lap Seidel"<< endl;
+                            
+                            cin>>choice2;
+                            switch(choice2){
+                                case 1:
+                                    outputFile<<"Lap don voi sai so e cho truoc:"<<endl;
+                                    double D2[100][100], E2[100][100];
+                                    copy(D,D2,size);
+                                    copy(E,E2,size);
+                                    cout<<"Lap don voi sai so e cho truoc: " << endl;
+                                    double e;
+                                    cout<<"Nhap vao sai so e: ";cin>>e;
+
+                                    loop_eDon(D2, E2, size, e,outputFile);
+                                    break;
+                                case 2:
+                                    outputFile<<"Lap Seidel voi sai so e cho truoc:"<<endl;
+                                    cout<<"Lap Seidel voi sai so e cho truoc " << endl;
+                                    double eps;
+                                    cout<<"Nhap vao sai so e: ";cin>>eps;
+                                    outputFile<<"Nhap vao sai so e: ";outputFile<<eps<<endl;
+                                    double D5[100][100], E5[100][100];
+                                    copy(D,D5,size);
+                                    copy(E,E5,size);
+                                    loop_eSeidel(D5, E5, size, eps,outputFile);     
+                                    break;
+                                }
                             }
                             break;
                         case 5:
@@ -1242,7 +835,35 @@ void setupMenu(ofstream &outputFile)
                                 outputFile<<"He da cho khong giai duoc bang lap don, lap seidel"<<endl;
                             }else
                             {
-                            chucnang6(outputFile,D, E, size);
+                            int choice3;
+                            
+                            cout<<"1. Lap don"<< endl;
+                            cout<<"2. Lap Seidel"<< endl;
+                            
+                            cin>>choice3;
+                            switch(choice3){
+                                case 1:
+                                    outputFile<<"Lap don co dieu kien voi sai so e cho truoc:"<<endl;
+                                    cout<<"Lap don co dieu kien voi sai so e cho truoc: " << endl;
+                                    double exp;
+                                    double D3[100][100], E3[100][100];
+                                    copy(D,D3,size);
+                                    copy(E,E3,size);
+                                    cout<<"Nhap vao sai so e: ";cin>>exp;
+
+                                    loop_Don_with_condition(D3, E3, size, exp,outputFile);
+                                    break;
+                                case 2:
+                                    outputFile<<"Lap Seidel co dieu kien voi sai so e cho truoc:"<<endl;
+                                    cout<<"Lap Seidel co dieu kien voi sai so e cho truoc: " << endl;
+                                    double eps;
+                                    cout<<"Nhap vao sai so e: ";cin>>eps;
+                                    double D4[100][100], E4[100][100];
+                                    copy(D,D4,size);
+                                    copy(E,E4,size);
+                                    loop_Seidel_with_condition(D4, E4, size, eps,outputFile);     
+                                    break;
+                            }
                         }
                     }
                     setTextColor(15); 

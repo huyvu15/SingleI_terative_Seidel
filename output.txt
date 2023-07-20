@@ -1,11 +1,132 @@
+Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
 ---------------------
 Ma tran B la:
-0 nan nan 
-nan 0 nan 
-nan nan 0 
+0 -0.1 -0.2 
+-0.1 0 -0.2 
+-0.1 -0.2 0 
 vetor d la:
-nan 
-nan 
-nan 
+1 
+0.5 
+0.5 
+
+                 Exit...
+Kiem tra tinh cheo troi cua A: 
+ A cheo troi
+--------------
+Do || Q || = 0.3
+Phuong phap hoi tu
+                 Exit...
+Chuan cot cua B: 0.4
+Chuan hang cua B: 0.3
+Chuan cot cua vector d: 2
+Chuan hang cua vector d: 1
+
+                 Exit...
+Lap don k lan:
+Nhap vao so lan lap: 5Nhap xap xi dau: x_0: 
+Chon luon xap xi dau la ma tran d.
+Lan 1
+0.85 
+0.3 
+0.3 
+Lan 2
+0.91 
+0.355 
+0.355 
+Lan 3
+0.8935 
+0.338 
+0.338 
+Lan 4
+0.8986 
+0.34305 
+0.34305 
+Lan 5
+0.897085 
+0.34153 
+0.34153 
+
+Danh gia sai so: 
+sai so: (q/(1-q))(X_5 - X_4) = 0.000651429
+Lap Seidel k lan:
+Nhap vao so lan lap: 5Da giai xong he phuong trinh trong 5 buoc lap.
+Nghiem cua he phuong trinh la: 
+x[0] = 0.897444
+x[1] = 0.341879
+x[2] = 0.34188
+
+Danh gia sai so: 
+Sai so: (q/(1-q))(X_5 - X_4) = 0
+
+                 Exit...
+Lap don voi sai so e cho truoc:
+Lan 1
+0.85 
+0.3 
+0.3 
+Lan 2
+0.91 
+0.355 
+0.355 
+Lan 3
+0.8935 
+0.338 
+0.338 
+Lan 4
+0.8986 
+0.34305 
+0.34305 
+Lan 5
+0.897085 
+0.34153 
+0.34153 
+Lap Seidel voi sai so e cho truoc:
+Nhap vao sai so e: 0.0001
+Da giai xong he phuong trinh trong 4 buoc lap.
+Nghiem cua he phuong trinh la: 
+x[0] = 0.897444
+x[1] = 0.341879
+x[2] = 0.34188
+
+                 Exit...
+Lap don co dieu kien voi sai so e cho truoc:
+Lan 1
+0.85 
+0.3 
+0.3 
+Lan 2
+0.91 
+0.355 
+0.355 
+Lan 3
+0.8935 
+0.338 
+0.338 
+Lan 4
+0.8986 
+0.34305 
+0.34305 
+Lan 5
+0.897085 
+0.34153 
+0.34153 
+Lan 6
+0.897541 
+0.341985 
+0.341985 
+Lan 7
+0.897404 
+0.341849 
+0.341849 
+Lan 8
+0.897445 
+0.34189 
+0.34189 
+Lap Seidel co dieu kien voi sai so e cho truoc:
+Da giai xong he phuong trinh trong 5 buoc lap.
+Nghiem cua he phuong trinh la: 
+x[0] = 0.897436
+x[1] = 0.34188
+x[2] = 0.34188
 
                  Exit...

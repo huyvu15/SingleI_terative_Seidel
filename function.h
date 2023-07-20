@@ -1,24 +1,7 @@
-#ifndef FUNCTION_H
-#define FUNCTION_H
+void chucnang1(ofstream &outputFile, double A[100][100], double b[100][100], int size);
 
-bool cheoTroiHang(double a[100][100]) 
+void chucnang4(ofstream &outputFile, double A[100][100], double b[100][100], int size);
 
-bool cheoTroiCot(double a[100][100]) 
+void chucnang5(ofstream &outputFile, double A[100][100], double b[100][100], int size);
 
-//////////////////////////////////////////
-// matrix[hang][cot]
-double chuanHangVecto(double b[100][100])
-
-
-double chuanCotVecto(double b[100][100])
-
-
-double chuanHang(double A[100][100], int size)
-
-
-double chuanCot(double A[100][100], int size)
-
-
-
-
-#endif
+void chucnang6(ofstream &outputFile, double A[100][100], double b[100][100], int size);
