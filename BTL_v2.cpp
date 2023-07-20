@@ -627,7 +627,7 @@ void chucnang1(ofstream &outputFile, double A[100][100], double b[100][100], int
                     XuatMaTran(b, size, 1, outputFile);
 
                     break;
-                }
+                }   
             }
 
             setTextColor(15);

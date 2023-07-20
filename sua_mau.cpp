@@ -357,7 +357,7 @@ void loop_kSeidel(double D[100][100], double E[100][100], int size, int k, ofstr
             }
             y[i][0] = E[i][0] + sum;
         }
-        if(dem == k- 2 )
+        if(dem == k -1 )
         {
             copy(y, eva, size);
         }
@@ -464,7 +464,7 @@ void loop_Seidel_with_condition(double D[100][100], double E[100][100], int size
 }
 
 void chucnang1(ofstream &outputFile, double A[100][100], double b[100][100], int size)
-{	 
+{	setTextColor(159);
     int choice = 0;
     int maxChoice = 2;
     char key;
@@ -596,7 +596,7 @@ void chucnang1(ofstream &outputFile, double A[100][100], double b[100][100], int
 }
 
 void chucnang4(ofstream &outputFile, double D[100][100], double E[100][100], int size)
-{	 
+{	setTextColor(159);
     int choice = 0;
     int maxChoice = 2;
     char key;
@@ -722,7 +722,7 @@ void chucnang4(ofstream &outputFile, double D[100][100], double E[100][100], int
 }
 
 void chucnang5(ofstream &outputFile, double D[100][100], double E[100][100], int size)
-{	 
+{	setTextColor(159);
     int choice = 0;
     int maxChoice = 2;
     char key;
@@ -843,7 +843,7 @@ void chucnang5(ofstream &outputFile, double D[100][100], double E[100][100], int
 }
 
 void chucnang6(ofstream &outputFile, double D[100][100], double E[100][100], int size)
-{	 
+{	setTextColor(159);
     int choice = 0;
     int maxChoice = 2;
     char key;
@@ -963,20 +963,20 @@ void chucnang6(ofstream &outputFile, double D[100][100], double E[100][100], int
 }
 
 void setupMenu(ofstream &outputFile)
-{	 
+{	setTextColor(159);
     int choice = 0;
     int maxChoice = 6;
     char key;
     while (true) {
         clearScreen();
-         
+        setTextColor(159);
         cout << "              =======================================================================================        "<< endl;
         cout << "              |  GIAI GAN DUNG HE PHUONG TRINH AX = b BANG PHUONG PHAP LAP DON, LAP SEIDELDAY CUNG  |          " << endl;
         cout << "              =======================================================================================        " << endl;
         for (int i = 0; i <= maxChoice; i++) {
             gotoxy(0, i + 3);
             if (i == choice) {
-            	 
+            	setTextColor(159);
                 printHighlightedOption(">>");
                 switch (i) {
                     case 0:
@@ -1017,7 +1017,7 @@ void setupMenu(ofstream &outputFile)
                 }
             }
             else {
-            	 
+            	setTextColor(159);
                 printNormalOption("  ");
                 switch (i) {
                     case 0:
@@ -1059,7 +1059,7 @@ void setupMenu(ofstream &outputFile)
             }
         }               
         cout<<endl;
-         
+        setTextColor(159);
         cout << "              =======================================================================================        " << endl;
         cout<<endl<<endl<<endl<<endl<<endl;
         cout<<"           Huong dan:"<<endl;
@@ -1086,7 +1086,7 @@ void setupMenu(ofstream &outputFile)
                 break;
             case '\r': 
                 clearScreen();
-                 
+                setTextColor(159);
                 if (choice == maxChoice) 
                 {
                     cout << "Thoat chuong trinh." << endl;
@@ -1197,7 +1197,7 @@ void setupMenu(ofstream &outputFile)
     }
 }
 int main() 
-{	 
+{	setTextColor(159);
     ofstream outputFile("output.txt");
     setupMenu(outputFile);
     outputFile.close();
