@@ -1,68 +1,23 @@
 Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
+Lua chon 1:
 Nhap tu file
 ---------------------
 Ma tran B la:
-0 -0.1 -0.2 
--0.1 0 -0.2 
--0.1 -0.2 0 
+0 -0.1 -0.05 0.05 
+0.1 0 -0.2 -0.1 
+-0.1 -0.05 0 -0.05 
+0.05 -0.1 -0.05 0 
 vetor d la:
-1 
 0.5 
 0.5 
+0.5 
+0.25 
 
-________________
-Lap Seidel k lan:
-Nhap vao so lan lap: 32760Da giai xong he phuong trinh trong 3 buoc lap.
-Nghiem cua he phuong trinh la: 
-x[0] = 0.8981
-x[1] = 0.33979
-x[2] = 0.342232
+__________________
+Lua chon 3:
+Chuan cot cua B: 0.3
+Chuan hang cua B: 0.4
+Chuan cot cua vector d: 1.75
+Chuan hang cua vector d: 0.5
 
-Danh gia sai so: 
-Sai so: (q/(1-q))(X_3 - X_2) = 0.0206143
-Lap Seidel k lan:
-Nhap vao so lan lap: 32760Da giai xong he phuong trinh trong 10 buoc lap.
-Nghiem cua he phuong trinh la: 
-x[0] = 0.897436
-x[1] = 0.34188
-x[2] = 0.34188
-
-Danh gia sai so: 
-Sai so: (q/(1-q))(X_10 - X_9) = 1.29149e-011
-Lap Seidel k lan:
-Nhap vao so lan lap: 32760Da giai xong he phuong trinh trong 5 buoc lap.
-Nghiem cua he phuong trinh la: 
-x[0] = 0.897444
-x[1] = 0.341879
-x[2] = 0.34188
-
-Danh gia sai so: 
-Sai so: (q/(1-q))(X_5 - X_4) = 5.60899e-005
-Lap don k lan:
-Nhap vao so lan lap: 5Nhap xap xi dau: x_0: 
-Chon luon xap xi dau la ma tran d.
-Lan 1
-0.85 
-0.3 
-0.3 
-Lan 2
-0.91 
-0.355 
-0.355 
-Lan 3
-0.8935 
-0.338 
-0.338 
-Lan 4
-0.8986 
-0.34305 
-0.34305 
-Lan 5
-0.897085 
-0.34153 
-0.34153 
-
-Danh gia sai so: 
-sai so: (q/(1-q))(X_5 - X_4) = 0.000651429
-
-________________
+__________________
