@@ -748,12 +748,12 @@ void setupMenu(ofstream &outputFile)
                             break;
                         case 3:
                             setTextColor(9); 
-                            if(chuanHang(D, size)>=1)
-                            {
-                                cout<<"He phuong trinh ko giai duoc bang lap don, lap seidel"<< endl;
-                                outputFile<<"He phuong trinh ko giai duoc bang lap don, lap seidel"<< endl;
-                            }else
-                            {
+                            // if(chuanHang(D, size)>=1)
+                            // {
+                            //     cout<<"He phuong trinh ko giai duoc bang lap don, lap seidel"<< endl;
+                            //     outputFile<<"He phuong trinh ko giai duoc bang lap don, lap seidel"<< endl;
+                            // }else
+                            // {
                             int choice;
                             
                             cout<<"1. Lap don"<< endl;
@@ -786,7 +786,7 @@ void setupMenu(ofstream &outputFile)
                                     loop_kSeidel(D6, E6, size, n_loop1,outputFile);     
                                     break;
                             }
-                            }
+                            // }
                             break;
                         case 4:
                             setTextColor(13); 
