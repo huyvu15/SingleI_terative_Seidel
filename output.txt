@@ -1,66 +1,23 @@
 Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
 Lua chon 1:
 Nhap tu file
-Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
-Lua chon 1:
-Nhap tay
-Nhap kich thuoc ma tran: 1
-Nhap ma tran A:
-1 
----------------------
-Nhap vector b:
-1 
-Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
-Lua chon 1:
-Nhap tu file
 ---------------------
 Ma tran B la:
-0 -0.0403023 -0.0157431 -0.191436 
--0.0215501 0 -0.164839 -0.0374291 
--0.0742198 -0.42339 0 -0.0390779 
--0.907316 -0.155391 -0.136139 0 
+0 -0.1 -0.05 0.05 
+0.1 0 -0.2 -0.1 
+-0.1 -0.05 0 -0.05 
+0.05 -0.1 -0.05 0 
 vetor d la:
-465995 
-211720 
-29519.3 
-68756.9 
+0.5 
+0.5 
+0.5 
+0.25 
 
 __________________
 Lua chon 2:
 Kiem tra tinh cheo troi cua A: 
  A khong cheo troi
 --------------
-Phuong phap khong hoi tu
-__________________
-Lua chon 3:
-Chuan cot cua B: 1.00309
-Chuan hang cua B: 1.19884
-Chuan cot cua vector d: 775991
-Chuan hang cua vector d: 465995
-
-__________________
-Lua chon 3:
-Chuan cot cua B: 1.00309
-Chuan hang cua B: 1.19884
-Chuan cot cua vector d: 775991
-Chuan hang cua vector d: 465995
-
-__________________
-Lua chon 4:
-He phuong trinh ko giai duoc bang lap don, lap seidel
-
-__________________
-Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
-Lua chon 1:
-Nhap tu file
----------------------
-Ma tran B la:
-0 -0.0403023 -0.0157431 
--0.0215501 0 -0.164839 
--0.0742198 -0.42339 0 
-vetor d la:
-465995 
-211720 
-29519.3 
-
+Do || Q || = 0.4
+Phuong phap hoi tu
 __________________

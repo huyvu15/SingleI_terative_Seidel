@@ -57,18 +57,21 @@ void XuatMaTran(double a[100][100], int dong, int cot, ofstream &outputFile)
     }
 }
 
-void readfromFile(const string& filename, int* n, double A[100][100],double B[100][100]) {
+void readfromFile(const string& filename, int* n, double A[100][100],double B[100][100]) 
+{
     ifstream file(filename.c_str()); 
     if (file.is_open()) {
         file >> *n;
         for (int i = 0; i < *n; i++) {
-            for (int j = 0; j < *n; j++) {
+            for (int j = 0; j < *n; j++) 
+            {
                 file >> A[i][j];
                 cout<<A[i][j] << " ";
             }
             cout<<endl;
         }
-        for (int i = 0; i < *n; i++) {
+        for (int i = 0; i < *n; i++) 
+        {
             file >> B[i][0];
             cout<<B[i][0]<<endl;
         }
@@ -83,8 +86,9 @@ bool cheoTroiHang(double a[100][100])
     int n = sizeof(a);
     double sum_diag = 0;
     double sum_row = 0;
-    for (int i = 0; i < n; i++) {
-        sum_diag += fabs(a[i][i]);
+    for (int i = 0; i < n; i++) 
+    {
+        sum_diag = fabs(a[i][i]); //chưa biết có += không
         sum_row = 0;
         for (int j = 0; j < n; j++) {
             if (j != i) {
@@ -103,8 +107,9 @@ bool cheoTroiCot(double a[100][100])
     int n = sizeof(a);
     double sum_diag = 0;
     double sum_col = 0;
-    for (int j = 0; j < n; j++) {
-        sum_diag += fabs(a[j][j]);
+    for (int j = 0; j < n; j++) 
+    {
+        sum_diag = fabs(a[j][j]);
         sum_col = 0;
         for (int i = 0; i < n; i++) {
             if (i != j) {
@@ -244,7 +249,6 @@ void copy(double a[100][100],double b[100][100],int size)
             b[i][j] = a[i][j];
         }
     }
-
 }
 
 void loop_KDon(double D[100][100], double E[100][100], int size, int k,ofstream &outputFile)
@@ -268,9 +272,10 @@ void loop_KDon(double D[100][100], double E[100][100], int size, int k,ofstream 
 	    congMatrix(F, K, F, size);
 	    XuatMaTran(F, size, 1, outputFile);
 
-        eva[0][0] = E[0][0]-F[0][0];
-        eva[1][0] = E[1][0]-F[1][0];
-        eva[2][0] = E[2][0]-F[2][0];
+        for(int i = 0; i < size; i++)
+        {
+            eva[i][0] = E[i][0] - F[i][0];
+        }
         
         copy(F, E, size);
 	    dem++;
@@ -298,9 +303,10 @@ void loop_eDon(double D[100][100], double E[100][100], int size, double e, ofstr
 	    congMatrix(F, K, F, size);
 	    XuatMaTran(F, size, 1, outputFile);
 
-        eva[0][0] = E[0][0]-F[0][0];
-        eva[1][0] = E[1][0]-F[1][0];
-        eva[2][0] = E[2][0]-F[2][0];
+        for(int i = 0; i < size; i++)
+        {
+            eva[i][0] = E[i][0] - F[i][0];
+        }
         
         copy(F, E, size);
 
@@ -327,9 +333,10 @@ void loop_Don_with_condition(double D[100][100], double E[100][100], int size, d
 	    congMatrix(F, K, F, size);
 	    XuatMaTran(F, size, 1, outputFile);
 
-        eva[0][0] = E[0][0]-F[0][0];
-        eva[1][0] = E[1][0]-F[1][0];
-        eva[2][0] = E[2][0]-F[2][0];
+        for(int i = 0; i < size; i++)
+        {
+            eva[i][0] = E[i][0] - F[i][0];
+        }
         
         copy(F, E, size);
 
@@ -475,7 +482,7 @@ void chucnang1(ofstream &outputFile, double A[100][100], double b[100][100], int
     while (true) {
         clearScreen();
         cout << "              =======================================================================================        " << endl;
-        cout << "              |                       Nhap input cho chuong trinh                                   |          " << endl;
+        cout << "              |                           Nhap input cho chuong trinh                               |          " << endl;
         cout << "              =======================================================================================        " << endl;
 
         for (int i = 0; i <= maxChoice; i++) {
