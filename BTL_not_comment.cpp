@@ -32,12 +32,12 @@ void printNormalOption(const string& text)
     cout << "  " << text << "  ";
 }
 
-
 void NhapMaTran(double a[100][100], int dong, int cot)
 {
     for (int i = 0; i < dong; i++)
     {
-        for(int j = 0; j < cot; j++){
+        for(int j = 0; j < cot; j++)
+        {
             cin >> a[i][j];
         }
     }
@@ -77,69 +77,30 @@ void readfromFile(const string& filename, int* n, double A[100][100],double B[10
         }
         file.close();
     } else {
-        cout << "Khong the mo tep!" << std::endl;
+        cout << "Khong the mo tep!" << endl;
     }
 }
 
-bool cheoTroiHang(double a[100][100]) 
+bool cheoTroiHang(double a[100][100],int size) 
 {
-    int n = sizeof(a);
-    double sum_diag = 0;
     double sum_row = 0;
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < size; i++) 
     {
-        sum_diag = fabs(a[i][i]); //chưa biết có += không
         sum_row = 0;
-        for (int j = 0; j < n; j++) {
-            if (j != i) {
+        for (int j = 0; j < size; j++) 
+        {
+            if (j != i) 
+            {
                 sum_row += fabs(a[i][j]);
             }
         }
-        if (sum_row >= sum_diag) {
+        if (sum_row >= fabs(a[i][i]))   
+		{
             return false; 
         }
     }
     return true;
 }
-
-bool cheoTroiCot(double a[100][100]) 
-{
-    int n = sizeof(a);
-    double sum_diag = 0;
-    double sum_col = 0;
-    for (int j = 0; j < n; j++) 
-    {
-        sum_diag = fabs(a[j][j]);
-        sum_col = 0;
-        for (int i = 0; i < n; i++) {
-            if (i != j) {
-                sum_col += fabs(a[i][j]);
-            }
-        }
-        if (sum_col >= sum_diag) {
-            return false; 
-        }
-    }
-    return true;  
-}
-// double chuanHangVecto(double b[100][100], int size)
-// {
-//     double X_inf = 0.0;
-//     for(int i = 0; i < size; i++){
-//         X_inf = max(X_inf, fabs(b[i][0])); 
-//     }
-//     return X_inf;
-// }
-
-// double chuanCotVecto(double b[100][100], int size)
-// {
-//     double X_1 = 0.0;
-//     for(int i = 0; i < size; i++)
-//     {
-//         X_1 = X_1 + fabs(b[i][0]);
-//     }
-//     return X_1;
-// }
 
 double chuanHang(double A[100][100], int size)
 {
@@ -1141,7 +1102,7 @@ void setupMenu(ofstream &outputFile)
                             setTextColor(13); 
                             cout    <<    "Kiem tra tinh cheo troi cua A: " << endl;
                             outputFile << "Kiem tra tinh cheo troi cua A: " << endl;
-                            if (cheoTroiCot(A) and cheoTroiHang(A)){
+                            if (cheoTroiHang(A, size)){
                                 cout   <<    " A cheo troi"<<endl;
                                 outputFile<< " A cheo troi"<<endl;
                             }else{
