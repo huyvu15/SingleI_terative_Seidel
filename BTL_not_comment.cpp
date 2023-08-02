@@ -677,7 +677,7 @@ void chucnang4(ofstream &outputFile, double D[100][100], double E[100][100], int
                     cout<<"Lap Seidel: " << endl;
                     int n_loop1;
                     cout<<"Nhap vao so lan lap: ";cin>>n_loop1;
-                    outputFile<<"Nhap vao so lan lap: "<<n_loop;
+                    outputFile<<"Nhap vao so lan lap: "<<n_loop<<endl;
                     double D6[100][100], E6[100][100];
                     copy(D,D6,size);
                     copy(E,E6,size);
@@ -1126,10 +1126,14 @@ void setupMenu(ofstream &outputFile)
                         case 2:
                             outputFile<<"Lua chon 3:"<<endl;
                             setTextColor(14); 
+                            cout<<"Chuan cot cua A: " <<chuanCot(A, size)<< endl;
+                            cout<<"Chuan hang cua A: " <<chuanHang(A, size)<< endl;
                             cout<<"Chuan cot cua B: " <<chuanCot(D, size)<< endl;
                             cout<<"Chuan hang cua B: " <<chuanHang(D, size)<< endl;
                             cout<<"Chuan cot cua vector d: " << chuanCot(E, size)<< endl;
                             cout<<"Chuan hang cua vector d: " << chuanHang(E, size)<< endl;
+                            outputFile<<"Chuan cot cua A: " <<chuanCot(A, size)<< endl;
+                            outputFile<<"Chuan hang cua A: " <<chuanHang(A, size)<< endl;
                             outputFile<<"Chuan cot cua B: " <<chuanCot(D, size)<< endl;
                             outputFile<<"Chuan hang cua B: " <<chuanHang(D, size)<< endl;
                             outputFile<<"Chuan cot cua vector d: " << chuanCot(E, size)<< endl;
