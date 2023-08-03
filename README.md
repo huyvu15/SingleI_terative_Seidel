@@ -43,3 +43,10 @@ Push code lên đây để đỡ bị mất code.
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6.png)
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6_1.png)
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6_2.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/end.png)
+
+Nếu input đầu vào cho kết quả ma trận không hội tụ thu được kết quả:
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/2_v1.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/4_v1.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/5_v1.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6_v1.png)
