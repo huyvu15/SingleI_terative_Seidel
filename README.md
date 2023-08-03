@@ -21,6 +21,9 @@ Trải qua quá trình học tập, chúng ta đã tiếp cận và làm quen v�
 trình, khám phá các nguyên tắc cơ bản và các kỹ thuật tiên tiến trong việc phát triển
 phần mềm. Đối mặt với nhiều thử thách và khó khăn, song cũng không ngừng trau dồi
 kiến thức và nỗ lực vượt qua những khó khăn đó.
+# Xây dựng chương trình bằng phương pháp tinh chỉnh từng bước
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/build_dig.png)
+
 
 # hình ảnh thực hiện chương trình
 
