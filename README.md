@@ -22,9 +22,6 @@ trình, khám phá các nguyên tắc cơ bản và các kỹ thuật tiên ti�
 phần mềm. Đối mặt với nhiều thử thách và khó khăn, song cũng không ngừng trau dồi
 kiến thức và nỗ lực vượt qua những khó khăn đó.
 
-
-Push code lên đây để đỡ bị mất code.
-
 # hình ảnh thực hiện chương trình
 
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/menu.png)
@@ -45,8 +42,13 @@ Push code lên đây để đỡ bị mất code.
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6_2.png)
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/end.png)
 
-Nếu input đầu vào cho kết quả ma trận không hội tụ thu được kết quả:
+# Nếu input đầu vào cho kết quả ma trận không hội tụ thu được kết quả:
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/2_v1.png)
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/4_v1.png)
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/5_v1.png)
 ![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6_v1.png)
+
+
+Push code lên đây để đỡ bị mất code.
+
+Sau khi nộp vào hoàn thành báo cáo tác giả sẽ xóa file local(tất cả thao tác của chương trình sẽ không được sửa đổi kể từ thời điểm tác giả đăng báo cáo).
