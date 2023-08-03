@@ -1,30 +1,104 @@
 Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
 Lua chon 1:
-Nhap tu file
+Nhap tay
+Nhap kich thuoc ma tran: 3
+Nhap ma tran A:
+1 2 3 
+1 2 3 
+1 1 1 
+---------------------
+Nhap vector b:
+3 
+2 
+1 
 ---------------------
 Ma tran B la:
-0 -0.1 -0.2 
--0.1 0 -0.2 
--0.1 -0.2 0 
+0 -2 -3 
+-0.5 0 -1.5 
+-1 -1 0 
 vetor d la:
+3 
 1 
-0.5 
-0.5 
+1 
 
 __________________
 Lua chon 2:
 Kiem tra tinh cheo troi cua A: 
- A cheo troi
+ A khong cheo troi
 --------------
-Do || Q || = 0.3
-Phuong phap hoi tu
+Phuong phap khong hoi tu
 __________________
 Lua chon 3:
-Chuan cot cua A: 14
-Chuan hang cua A: 13
-Chuan cot cua B: 0.4
-Chuan hang cua B: 0.3
-Chuan cot cua vector d: 2
-Chuan hang cua vector d: 1
+Chuan cot cua A: 7
+Chuan hang cua A: 6
+Chuan cot cua B: 4.5
+Chuan hang cua B: 5
+Chuan cot cua vector d: 5
+Chuan hang cua vector d: 3
+
+__________________
+Lua chon 4:
+He phuong trinh ko giai duoc bang lap don, lap seidel
+
+__________________
+Lua chon 5:
+Lua chon 5:
+He da cho khong giai duoc bang pp lap don, seidel do he khong hoi tu: 
+
+__________________
+Lua chon 6:
+He da cho khong giai duoc bang lap don, lap seidel
+
+__________________
+Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
+Lua chon 1:
+Nhap tay
+Nhap kich thuoc ma tran: 3
+Nhap ma tran A:
+1 2 3 
+1 2 3 
+1 1 1 
+---------------------
+Nhap vector b:
+1 
+2 
+3 
+---------------------
+Ma tran B la:
+0 -2 -3 
+-0.5 0 -1.5 
+-1 -1 0 
+vetor d la:
+1 
+1 
+3 
+
+__________________
+Lua chon 2:
+Kiem tra tinh cheo troi cua A: 
+ A khong cheo troi
+--------------
+Phuong phap khong hoi tu
+__________________
+Lua chon 3:
+Chuan cot cua A: 7
+Chuan hang cua A: 6
+Chuan cot cua B: 4.5
+Chuan hang cua B: 5
+Chuan cot cua vector d: 5
+Chuan hang cua vector d: 3
+
+__________________
+Lua chon 4:
+He phuong trinh ko giai duoc bang lap don, lap seidel
+
+__________________
+Lua chon 5:
+Lua chon 5:
+He da cho khong giai duoc bang pp lap don, seidel do he khong hoi tu: 
+
+__________________
+Lua chon 6:
+He da cho khong giai duoc bang lap don, lap seidel
 
 __________________
