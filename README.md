@@ -1,4 +1,4 @@
-#Single_Iterative_Seidel
+# Single_Iterative_Seidel
 
 Phương trình tuyến tính là một khái niệm quan trọng trong toán học và khoa học máy
 tính. Giải hệ phương trình tuyến tính đóng vai trò quan trọng trong nhiều lĩnh vực, bao
@@ -24,3 +24,22 @@ kiến thức và nỗ lực vượt qua những khó khăn đó.
 
 
 Push code lên đây để đỡ bị mất code.
+
+# hình ảnh thực hiện chương trình
+
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/menu.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/1_1.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/1_2.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/1_3.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/1_4.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/2.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/3.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/4.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/4_1.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/4_2.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/5.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/5_1.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/5_2.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6_1.png)
+![1_1](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/run_program/6_2.png)
