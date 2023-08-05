@@ -1,104 +1,175 @@
 Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
 Lua chon 1:
-Nhap tay
-Nhap kich thuoc ma tran: 3
-Nhap ma tran A:
-1 2 3 
-1 2 3 
-1 1 1 
----------------------
-Nhap vector b:
-3 
-2 
-1 
+Nhap tu file
 ---------------------
 Ma tran B la:
-0 -2 -3 
--0.5 0 -1.5 
--1 -1 0 
+0 -0.1 -0.2 
+-0.1 0 -0.2 
+-0.1 -0.2 0 
 vetor d la:
-3 
 1 
-1 
+0.5 
+0.5 
 
 __________________
 Lua chon 2:
 Kiem tra tinh cheo troi cua A: 
- A khong cheo troi
+ A cheo troi
 --------------
-Phuong phap khong hoi tu
+Do || Q || = 0.3
+Phuong phap hoi tu
 __________________
 Lua chon 3:
-Chuan cot cua A: 7
-Chuan hang cua A: 6
-Chuan cot cua B: 4.5
-Chuan hang cua B: 5
-Chuan cot cua vector d: 5
-Chuan hang cua vector d: 3
+Chuan cot cua A: 14
+Chuan hang cua A: 13
+Chuan cot cua B: 0.4
+Chuan hang cua B: 0.3
+Chuan cot cua vector d: 2
+Chuan hang cua vector d: 1
 
 __________________
 Lua chon 4:
-He phuong trinh ko giai duoc bang lap don, lap seidel
+Lap don k lan:
+Nhap vao so lan lap: 5Nhap xap xi dau: x_0: 
+Chon luon xap xi dau la ma tran d.
+Lan 1
+0.85 
+0.3 
+0.3 
+Lan 2
+0.91 
+0.355 
+0.355 
+Lan 3
+0.8935 
+0.338 
+0.338 
+Lan 4
+0.8986 
+0.34305 
+0.34305 
+Lan 5
+0.897085 
+0.34153 
+0.34153 
+
+Danh gia sai so: 
+sai so: (q/(1-q))(X_5 - X_4) = 0.000651429
+Lap Seidel k lan:
+Nhap vao so lan lap: 5
+Nghiem cua he phuong trinh la: 
+x[1] = 0.85
+x[2] = 0.315
+x[3] = 0.352
+x[1] = 0.8981
+x[2] = 0.33979
+x[3] = 0.342232
+x[1] = 0.897575
+x[2] = 0.341796
+x[3] = 0.341883
+x[1] = 0.897444
+x[2] = 0.341879
+x[3] = 0.34188
+x[1] = 0.897436
+x[2] = 0.34188
+x[3] = 0.34188
+
+Danh gia sai so: 
+Sai so: (q/(1-q))(X_5 - X_4) = 3.25159e-006
 
 __________________
 Lua chon 5:
 Lua chon 5:
-He da cho khong giai duoc bang pp lap don, seidel do he khong hoi tu: 
+Lap don voi sai so e cho truoc:
+Lan 1
+0.85 
+0.3 
+0.3 
+Lan 2
+0.91 
+0.355 
+0.355 
+Lan 3
+0.8935 
+0.338 
+0.338 
+Lan 4
+0.8986 
+0.34305 
+0.34305 
+Lan 5
+0.897085 
+0.34153 
+0.34153 
+Lan 6
+0.897541 
+0.341985 
+0.341985 
+Lan 7
+0.897404 
+0.341849 
+0.341849 
+Da giai xong he phuong trinh trong 7 buoc lap.
+
+Lap Seidel voi sai so e cho truoc:
+Nhap vao sai so e: 0.0001
+Nghiem cua he phuong trinh la: 
+x[1] = 0.85
+x[2] = 0.315
+x[3] = 0.352
+x[1] = 0.8981
+x[2] = 0.33979
+x[3] = 0.342232
+x[1] = 0.897575
+x[2] = 0.341796
+x[3] = 0.341883
+x[1] = 0.897444
+x[2] = 0.341879
+x[3] = 0.34188
+Da giai xong he phuong trinh trong 4 buoc lap.
 
 __________________
 Lua chon 6:
-He da cho khong giai duoc bang lap don, lap seidel
-
-__________________
-Giai HPT tuyen tinh AX = b bang lap don, lap Seidel
-Lua chon 1:
-Nhap tay
-Nhap kich thuoc ma tran: 3
-Nhap ma tran A:
-1 2 3 
-1 2 3 
-1 1 1 
----------------------
-Nhap vector b:
-1 
-2 
-3 
----------------------
-Ma tran B la:
-0 -2 -3 
--0.5 0 -1.5 
--1 -1 0 
-vetor d la:
-1 
-1 
-3 
-
-__________________
-Lua chon 2:
-Kiem tra tinh cheo troi cua A: 
- A khong cheo troi
---------------
-Phuong phap khong hoi tu
-__________________
-Lua chon 3:
-Chuan cot cua A: 7
-Chuan hang cua A: 6
-Chuan cot cua B: 4.5
-Chuan hang cua B: 5
-Chuan cot cua vector d: 5
-Chuan hang cua vector d: 3
-
-__________________
-Lua chon 4:
-He phuong trinh ko giai duoc bang lap don, lap seidel
-
-__________________
-Lua chon 5:
-Lua chon 5:
-He da cho khong giai duoc bang pp lap don, seidel do he khong hoi tu: 
-
-__________________
-Lua chon 6:
-He da cho khong giai duoc bang lap don, lap seidel
+Lap don co dieu kien voi sai so e cho truoc:
+Lan 1
+0.85 
+0.3 
+0.3 
+Lan 2
+0.91 
+0.355 
+0.355 
+Lan 3
+0.8935 
+0.338 
+0.338 
+Lan 4
+0.8986 
+0.34305 
+0.34305 
+Lan 5
+0.897085 
+0.34153 
+0.34153 
+Lan 6
+0.897541 
+0.341985 
+0.341985 
+Da giai xong he phuong trinh trong 6 buoc lap.
+Lap Seidel co dieu kien voi sai so e cho truoc:
+Nghiem cua he phuong trinh la: 
+x[1] = 0.85
+x[2] = 0.315
+x[3] = 0.352
+x[1] = 0.8981
+x[2] = 0.33979
+x[3] = 0.342232
+x[1] = 0.897575
+x[2] = 0.341796
+x[3] = 0.341883
+x[1] = 0.897444
+x[2] = 0.341879
+x[3] = 0.34188
+Da giai xong he phuong trinh trong 4 buoc lap.
 
 __________________
