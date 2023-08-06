@@ -55,3 +55,5 @@ kiến thức và nỗ lực vượt qua những khó khăn đó.
 Push code lên đây để đỡ bị mất code.
 
 Sau khi nộp vào hoàn thành báo cáo tác giả sẽ xóa file local(tất cả thao tác của chương trình sẽ không được sửa đổi kể từ thời điểm tác giả đăng báo cáo).
+
+Báo cáo: [Xem báo cáo tại đây!](https://github.com/huyvu15/Single_Iterative_Seidel/blob/main/K%C4%A9_thu%E1%BA%ADt_l%E1%BA%ADp_tr%C3%ACnh_cu%E1%BB%91i_k%E1%BB%B3.pdf)
